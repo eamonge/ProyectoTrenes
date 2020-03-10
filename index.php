@@ -14,13 +14,8 @@
             <ul>
                 <a class="navItem HomeIcn"><i class="fas fa-home"></i></a>
                 <a class="navItem"><li class="navList">Contáctenos</li></a>
-<<<<<<< HEAD:index.php
                 <a href="html/LoginUsuario.php" class="navItem"><li class="navList">Ingresar sesión</li></a>
                 <a href="html/Horarios2.php" class="navItem"><li class="navList">Horarios</li></a>
-=======
-                <a href="html/LoginUsuario.html" class="navItem"><li class="navList">Ingresar sesión</li></a>
-                <a href="html/Horarios2.html" class="navItem"><li class="navList">Horarios</li></a>
->>>>>>> 0420fbc5e6a2dd0652a63ae262801935a088fa63:index.html
                 <a id="AbtUs" class="navItem"><li class="navList">Sobre nosotros</li></a>
             </ul>
         </nav>

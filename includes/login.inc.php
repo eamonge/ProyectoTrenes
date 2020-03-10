@@ -22,11 +22,11 @@ try
         {
             echo "<script type='text/javascript'>alert('Bienvenido $UsernameInput')</script>";
             $_SESSION['Usuario'] = $UsernameInput;
-            header('Refresh:0;url=/DesarrolloWeb/html/Panel.php');
+            header('Refresh:0;url=/ProyectoTrenes/html/Panel.php');
         } else
         {
             echo "<script type='text/javascript'>alert('No existe el usuario $PWDInput')</script>";
-            header('Refresh:0;url=/DesarrolloWeb/html/LoginUsuario.php');
+            header('Refresh:0;url=/ProyectoTrenes/html/LoginUsuario.php');
         }
     } else 
     {
