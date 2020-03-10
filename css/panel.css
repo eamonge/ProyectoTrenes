@@ -1,0 +1,599 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Poppins|Raleway|Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+
+body
+{
+    scroll-behavior: auto;
+}
+
+div
+{
+    width: 265px;
+
+    /* 
+    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif; 
+*/
+}
+
+#HdrDiv
+{
+    position: fixed;
+    /* background-color: #56BDA2; */
+    height: 16%;
+    width: 15%;
+    text-align: center;
+    left: 0px;
+    top: 0px;
+    z-index: 0;
+}
+
+#HdrDiv p
+{
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Odibee Sans', sans-serif; */
+    padding-top: 20px;
+    color: white;
+    /* padding-top: 10px; */
+}
+
+#SidePanelDv
+{
+    position: fixed;
+    background-color: #292A2D;
+    width: 15%;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+}
+
+#SidePanelDv a
+{
+    font-family: 'Raleway', sans-serif;
+    /* color: #2494A2; */
+    /* padding: 10px; */
+    color: white;
+    /* display: flex; */
+    /* margin: 0; */
+    /* width: -10px; */
+    /* width: 100%; */
+    text-align: center;
+    /* margin-left: 1em; */
+    transition: all 300ms;
+    margin-left: 40%;
+}
+
+#SidePanelDv li
+{
+    width: auto;
+    /* background-color: green; */
+    /* background-color: red; */
+    height: 44px;
+    font-size: 1.4vw;
+    /* margin-left: 4em; */
+    /* margin-top: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px; */
+    position: relative;
+    padding: 5px;
+    margin: 5px;
+    top: 100px;
+    list-style-type: none;
+}
+
+/* #SidePanelDv a:hover
+{
+    color: #304B78;
+} */
+
+#SidePanelDv a:hover
+{
+    color: #626262;
+}
+
+/* #SidePanelDv #AjustesLnk .fa-cog
+{
+    transition: transform 600ms;
+}
+
+#SidePanelDv #AjustesLnk:hover .fa-cog
+{
+    transform: rotate(180deg);
+}
+
+#SidePanelDv .fa-info-circle
+{
+    transition: transform 300ms;
+}
+
+#SidePanelDv #B:hover .fa-info-circle
+{
+    transform: translateY(-20px);
+}
+
+#SidePanelDv .fa-id-card
+{
+    transition: transform 600ms ease-in-out;
+}
+
+#SidePanelDv #C:hover .fa-id-card
+{
+    transform: rotateY(180deg);
+}
+
+#SidePanelDv #E .fa-sign-out-alt
+{
+    transition: transform 300ms ease-in;
+}
+
+
+#SidePanelDv #E:hover .fa-sign-out-alt
+{
+    transform: translateX(10px);
+    
+} */
+
+/* #A:hover ~ #B
+{
+    color: pink;
+} */
+
+#SidePanelDv span
+{
+    margin-left: 1em;
+}
+
+#SidePanel hr
+{
+    width: 100%;
+}
+
+#sContainer
+{
+    position: relative;
+}
+
+#ContentBody
+{
+    position: fixed;
+    overflow: scroll;
+    left: 23%;
+    top: 90px;
+    /* background-color: red; */
+    width: 77%; /*hereo*/
+    height: 100%;
+}
+
+.MenuContent
+{
+    /* background-color: green; */
+    /* overflow: scroll; */
+    position: absolute;
+    border-top: solid 1px black;
+    width: 100%;
+    height: 1000px;
+}
+
+
+.MenuContent h1
+{
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+.MenuContent hr
+{
+    border: solid 1px rgba(0, 0, 0, 1);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.09); */
+    width: 50%;
+}
+
+.tablasubSecc
+{
+    position: relative;
+    /* overflow: scroll; */
+    left: 2%;
+    top: -70px;
+    /* right: 10%; */
+    width: 100%;
+    padding: 10px;
+    z-index: -1;
+    
+    /* background-color: red; */    
+}
+
+.tablasubSecc::-webkit-scrollbar-track-piece
+{
+    background-color: red;
+}
+
+.tablasubSecc button
+{
+    position: relative;
+    left: 40%;
+    width: 175px;
+    height: 70px;
+    padding: 5px;
+    margin-right: 1em;
+    background-color: #0A0E29;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tablasubSecc button:hover
+{
+    background-color: #DBB13B;
+    color: black;
+    transition: all 300ms;
+}
+
+#ContentBody  #HorarioSect
+{
+    opacity: 0;
+    width: 100%;
+}
+
+#ContentBody  #CntUsuario
+{
+    opacity: 0;
+    z-index: -1;
+    /* background-color: goldenrod; */
+    /* height: 100%; */
+}
+
+#CntUsuario h3
+{
+    margin-left: 2%;
+    font-family: 'Montserrat', sans-serif;
+    /* background-color: red; */
+    display: inline;
+}
+
+#CntUsuario input
+{
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14pt;
+    left: 30%;
+    top: -25px;
+    display: block;
+
+}
+
+#CntUsuario button
+{
+    position: relative;
+    left: 40%;
+    width: 175px;
+    height: 70px;
+    padding: 5px;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    background-color: #0A0E29;
+    color: white;
+    font-weight: bold;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#CntUsuario button:hover
+{
+    /* background-color: #DBB13B;
+    color: black;
+    transition: all 300ms; */
+    color: rebeccapurple;
+}
+
+table {
+    /* margin-right: -700px; */
+  position: relative;
+  border-collapse: collapse;
+  width: 75%;
+  color: black;
+  font-size: 12pt;
+  margin-bottom: 80px;
+  margin-top: 40px;
+  left: 10%;
+  box-shadow: 0px 6px 8px 5px rgba(0, 0, 0, 0.2), 4px 12px 20px 1px rgba(0, 0, 0, 0.19);
+  overflow: auto;
+  height: 500px;
+  display: block;
+}
+
+tbody
+{
+  width: 1100px;
+  
+}
+
+h1
+{
+  text-align: center;
+  font-family: 'nunitoregular';  
+}
+
+table td {
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+th {
+  background-color: #0A0E29;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  text-anchor: middle;
+}
+
+tr {
+  text-align: center;
+  font-family: 'montserratregular';
+}
+
+th:nth-child(even) {
+  background-color: #DBB13B;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd)
+{
+  color: white;
+}
+
+
+#ContentMenu
+{
+    position: fixed;
+    left: 15%;
+    top: 0;
+    /* left:  */
+    /* background-color: teal; */
+    /* background: url('../img/reserv_banner.jpg') no-repeat center center fixed; */
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.ContenidoSecciones
+{
+    position: absolute;
+    /* border: solid 1px black; */
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 2;
+}
+
+#AjustesPanel
+{
+    opacity: 0;
+    z-index: 0;
+}
+
+#FormGroupAjustes
+{
+    position: relative;
+    left: 25%;
+    width: 50%;
+    text-align: center;
+}
+
+#AjustesPanel h1
+{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+#AjustesPanel button
+{
+    background-color: rgba(0, 0, 0, 0);
+    position: relative;
+    left: 37%;
+    top: 1em;
+    font-size: 14pt;
+    /* background-color: red; */
+    margin: 5px;
+    font-weight: bolder;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    width: 175px;
+    height: 40px;
+    border: none;
+}
+
+#AjustesPanel #ButtonHR
+{
+    margin: 0;
+    /* margin-top: 11px; */
+    margin-left: 40%;
+    opacity: 1;
+    border: solid 1px black;
+    width: 7.3%;
+    transition: .3s ease-out;
+    z-index: 3;
+}
+
+#Submit:hover ~ #ButtonHR
+{
+    opacity: 1;
+    margin-left: 40%;    
+}
+
+#Cancel:hover ~ #ButtonHR
+{
+    opacity: 1;
+    margin-left: 54%;
+}
+
+
+
+#AjustesPanel button:hover::after
+{
+    text-decoration: underline;
+}
+
+#ReservacionesPanel
+{
+    opacity: 0;
+    z-index: 0;
+}
+
+#HorariosPanel
+{
+    opacity: 0;
+    z-index: 0;
+}
+
+#ReservacionesPanel h1
+{
+    
+    font-family: 'Montserrat', sans-serif;
+}
+
+#NotificacionesPanel
+{
+    opacity: 0;
+    z-index: 0;
+}
+
+input
+{
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    /* border-bottom: 2px solid black; */
+    /* border-bottom; */
+    /* border-: 1px; */
+    font-family: 'Montserrat', sans-serif;
+    padding: 5px;
+    font-size: 18pt;
+    text-align: center;
+    /* transition: all 3s; */
+}
+
+
+#FormGroupAjustes hr
+{
+    margin-top: -1px;
+    border: none;
+    border-bottom: 2px solid black;
+    width: 0;
+    display: block;
+    transition: all 300ms;
+    /*color: red; */
+}
+
+#FormGroupAjustes #Name:hover ~ #One
+{
+    width: 28%;
+}
+
+#FormGroupAjustes #PA:hover ~ #Two
+{
+    width: 28%;
+}
+
+#FormGroupAjustes #SA:hover ~ #Three
+{
+    width: 28%;
+}
+
+
+#FormGroupAjustes #CED:hover ~ #Four
+{
+    width: 28%;
+}
+
+
+#FormGroupAjustes #CORR:hover ~ #Five
+{
+    width: 28%;
+}
+
+#FormGroupAjustes #PWD:hover ~ #Six
+{
+    width: 28%;
+}
+
+#FormGroupAjustes #DOB:hover ~ #Seven
+{
+    width: 28%;
+}
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Spartan&display=swap');
+
+body
+{
+    background-color: aqua;
+}
+
+
+#SidePanel
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 15%;
+    background-color: #0A0E29;
+    
+}
+
+#SidePanel h1
+{
+    text-align: center;
+    margin-top: 20%;
+    color: #DBB13B;
+    font-size: 12pt;
+    font-family: 'Spartan', sans-serif;
+}
+
+#SidePanel section 
+{
+    position: relative;
+    top: 20%;
+    margin-bottom: 10%;
+    padding: 1%;
+}
+
+#SidePanel section h3
+{
+    text-align: center;
+    padding: 1%;
+    color: rgb(175, 141, 46);
+    font-family: 'Spartan', sans-serif;
+}
+
+#SidePanel section .fas
+{
+    float: left;
+    display: block;
+    margin-left: 7%;
+}
+
+#SidePanel section .far
+{
+    float: left;
+    display: block;
+    margin-left: 7%;
+}
+
+#SidePanel section h3:hover
+{
+    
+    color: #DBB13B;
+    transition: all 300ms;
+} */
