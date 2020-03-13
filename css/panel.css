@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Poppins|Raleway|Source+Sans+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap');
+
+/*  */
+
 
 
 body
@@ -44,7 +48,7 @@ div
 #SidePanelDv
 {
     position: fixed;
-    background-color: #292A2D;
+    background-color: #304B78;
     width: 15%;
     height: 100vh;
     left: 0px;
@@ -156,83 +160,7 @@ div
 #sContainer
 {
     position: relative;
-}
-
-#ContentBody
-{
-    position: fixed;
-    overflow: scroll;
-    left: 23%;
-    top: 90px;
-    /* background-color: red; */
-    width: 77%; /*hereo*/
-    height: 100%;
-}
-
-.MenuContent
-{
-    /* background-color: green; */
-    /* overflow: scroll; */
-    position: absolute;
-    border-top: solid 1px black;
-    width: 100%;
-    height: 1000px;
-}
-
-
-.MenuContent h1
-{
-    font-family: 'Lato', sans-serif;
-    text-align: center;
-}
-
-.MenuContent hr
-{
-    border: solid 1px rgba(0, 0, 0, 1);
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 6px 20px 0 rgba(0, 0, 0, 0.09); */
-    width: 50%;
-}
-
-.tablasubSecc
-{
-    position: relative;
-    /* overflow: scroll; */
-    left: 2%;
-    top: -70px;
-    /* right: 10%; */
-    width: 100%;
-    padding: 10px;
-    z-index: -1;
-    
-    /* background-color: red; */    
-}
-
-.tablasubSecc::-webkit-scrollbar-track-piece
-{
-    background-color: red;
-}
-
-.tablasubSecc button
-{
-    position: relative;
-    left: 40%;
-    width: 175px;
-    height: 70px;
-    padding: 5px;
-    margin-right: 1em;
-    background-color: #0A0E29;
-    color: white;
-    font-weight: bold;
-    border: none;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.tablasubSecc button:hover
-{
-    background-color: #DBB13B;
-    color: black;
-    transition: all 300ms;
-}
+}   
 
 #ContentBody  #HorarioSect
 {
@@ -365,13 +293,15 @@ tr:nth-child(odd)
     width: 100%;
     height: 100%;
     overflow: scroll;
+    z-index: -1;
 }
 
 .ContenidoSecciones
 {
     position: absolute;
+    background-color: purple;
     /* border: solid 1px black; */
-    width: 100vw;
+    width: 99%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0);
     z-index: 2;
@@ -379,14 +309,16 @@ tr:nth-child(odd)
 
 #AjustesPanel
 {
+    margin: 0;
     opacity: 0;
     z-index: 0;
+
 }
 
 #FormGroupAjustes
 {
     position: relative;
-    left: 25%;
+    left: 15%;
     width: 50%;
     text-align: center;
 }
@@ -395,6 +327,21 @@ tr:nth-child(odd)
 {
     text-align: center;
     font-family: 'Raleway', sans-serif;
+}
+
+#AjustesPanel hr
+{
+    border: solid 1px black;
+    width: 1em  ;
+}
+
+#AjustesPanel form
+{
+    position: relative;
+    left: 15%;
+    margin: 0;
+    background-color: pink;
+    width: 50%;
 }
 
 #AjustesPanel button
@@ -447,13 +394,15 @@ tr:nth-child(odd)
 
 #ReservacionesPanel
 {
-    opacity: 0;
+    opacity: 1;
+    margin: 0;
     z-index: 0;
 }
 
 #HorariosPanel
 {
     opacity: 0;
+    margin: 0;
     z-index: 0;
 }
 
@@ -466,6 +415,7 @@ tr:nth-child(odd)
 #NotificacionesPanel
 {
     opacity: 0;
+    margin: 0;
     z-index: 0;
 }
 
@@ -532,6 +482,198 @@ input
     width: 28%;
 }
 
+.tabs
+{
+    background-color: #292A2D;
+    float: left;
+    width: 22%;
+    border: solid 1px black;
+    height: 100px;
+    border: none;
+    border-right: solid 1px black;
+    text-align: left;
+}
+
+.LgoH1
+{
+    position: relative;
+    left: 44%;
+    background-color: #626262;
+    text-align: center;
+    padding: 5px;
+    color: white;
+    border: solid 2px #626262;
+    border-radius: 200%;
+    width: 20px;
+}
+
+#ReservacionesPanel .tabs
+{
+    text-align: center;
+}
+
+.TiqueteInfo
+{
+    margin: 10px;
+    margin-left: 4%;
+    border: solid 1.5px #E8E8E8;
+    /* background-color: cadetblue; */
+    width: 80%;
+    height: 200px;
+}
+
+#ReservacionesPanel #TestOO:not(:hover)
+{
+    border-color: #E8E8E8;
+}
+
+#ReservacionesPanel #TestOO:hover
+{
+    border: 3px solid #2494A2;
+}
+
+.panelSecciones
+{
+    float: left;
+}
+
+.TiqueteInfoPanel1
+{
+    width: 25%;
+    height: 100%;
+    border-right: dotted 1.5px #E8E8E8;
+}
+
+.TiqueteInfoPanel2
+{
+    width: 50%;
+    height: 100%;
+    border-right: dotted 1px #E8E8E8;
+    text-align: center;
+}
+
+.TiqueteInfoPanel3
+{
+    width: 24.4%;
+    height: 100%;
+}
+
+.TopPart
+{
+    position: relative;
+    background-color: darkmagenta;
+    top: -12%;
+    width: 100%;
+    height: 50%;
+}
+
+.BtmPart
+{
+    position: relative;
+    background-color: darkgoldenrod;
+    /* border: solid 1px black; */
+    top: -25%;
+    width: 100%;
+    height: 50%;
+}
+
+.PanelsLeft
+{
+    width: 40%;
+    height: 100%;
+    float: left;
+}
+
+.PanelsMiddle
+{
+    background-color: darkgreen;
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+
+.PanelsRight
+{
+    float: left;
+    height: 100%;
+    background-color: darkcyan;
+    width: 25%;
+}
+
+
+/* .Panel2SPanel1
+{
+    float: left;
+    background-color: rebeccapurple;
+    height: 100%;
+    width: 34%;
+}
+
+.Panel2SPanel2
+{
+    background-color: green;
+    float: left;
+    height: 100%;
+    width: 30.5%;
+}
+
+.Panel2SPanel3
+{
+    float: left;
+    height: 100%;
+    width: 34%;
+}
+*/
+
+.tiquetContentLeft
+{
+    left: 4em;
+    position: absolute;
+    font-family: 'Baloo Chettan 2', cursive;
+    font-weight: 100;
+    margin: 0;
+    font-size: 12pt;
+}
+
+.tiquetContentRight
+{
+    left: 22em;
+    /* top: 0; */
+    font-weight: 100;
+    margin: 0;
+    font-size: 12pt;
+    position: absolute;
+    font-family: 'Baloo Chettan 2', cursive;
+}
+
+.DateH3
+{
+    color: #B2B2B2;
+}
+
+.Station1H3
+{
+    color: #636363;
+}
+
+/*
+.contentUp
+{
+    position: relative;
+    top: -19px;
+    background-color: cyan;
+    width: 100%;
+    height: 50%;
+}
+
+.contentDown
+{
+    position: relative;
+    top: -38px;
+    background-color: red;
+    width: 100%;
+    height: 50%;
+} */
 
 /* @import url('https://fonts.googleapis.com/css?family=Spartan&display=swap');
 

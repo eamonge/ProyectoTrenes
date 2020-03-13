@@ -84,27 +84,27 @@ $Username = $_SESSION['Usuario'];
                     }
 
                     $conn->query("SET CHARACTER SET utf8");
-                //     $sql = "SELECT idUsuario
-                //           ,Nombre
-                //           ,PrimerApellido
-                //           ,SegundoApellido
-                //           ,Cedula
-                //           ,Correo
-                //           ,Contrasena
-                //           ,FdN
-                //   FROM usuarios
-                //   WHERE Nombre = 1;";
+                    //     $sql = "SELECT idUsuario
+                    //           ,Nombre
+                    //           ,PrimerApellido
+                    //           ,SegundoApellido
+                    //           ,Cedula
+                    //           ,Correo
+                    //           ,Contrasena
+                    //           ,FdN
+                    //   FROM usuarios
+                    //   WHERE Nombre = 1;";
 
-                //     $sql = "SELECT idUsuario
-                //           ,Nombre
-                //           ,PrimerApellido
-                //           ,SegundoApellido
-                //           ,Cedula
-                //           ,Correo
-                //           ,Contrasena
-                //           ,FdN
-                //   FROM usuarios
-                //   WHERE Nombre = 1;";
+                    //     $sql = "SELECT idUsuario
+                    //           ,Nombre
+                    //           ,PrimerApellido
+                    //           ,SegundoApellido
+                    //           ,Cedula
+                    //           ,Correo
+                    //           ,Contrasena
+                    //           ,FdN
+                    //   FROM usuarios
+                    //   WHERE Nombre = 1;";
 
                     $sql = "SELECT idUsuario
                     ,Nombre
@@ -136,32 +136,32 @@ $Username = $_SESSION['Usuario'];
                     <form>
                         <div id="FormGroupAjustes">
                             <h1>Usuario/Nombre:</h1>
-                            <input id="Name" type="text" value="<?php echo $nombre?>">
+                            <input id="Name" type="text" value="<?php echo $nombre ?>">
                             <hr id="One" class="InputBottom">
 
                             <h1>Primer Apellido:</h1>
-                            <input id="PA" type="text" value="<?php echo $PrimApellido?>">
+                            <input id="PA" type="text" value="<?php echo $PrimApellido ?>">
                             <hr id="Two" class="InputBottom">
 
                             <h1>Segundo Apellido:</h1>
-                            <input id="SA" type="text" value="<?php echo $SegndApellido?>">
+                            <input id="SA" type="text" value="<?php echo $SegndApellido ?>">
                             <hr id="Three" class="InputBottom">
 
                             <h1>Cédula:</h1>
-                            <input id="CED" type="text" value="<?php echo $Cedula?>">
+                            <input id="CED" type="text" value="<?php echo $Cedula ?>">
                             <hr id="Four" class="InputBottom">
 
 
                             <h1>Correo:</h1>
-                            <input id="CORR" type="text" value="<?php echo $Correo?>">
+                            <input id="CORR" type="text" value="<?php echo $Correo ?>">
                             <hr id="Five" class="InputBottom">
 
                             <h1>Contraseña:</h1>
-                            <input id="PWD" type="password" value="<?php echo $Contrasena?>">
+                            <input id="PWD" type="password" value="<?php echo $Contrasena ?>">
                             <hr id="Six" class="InputBottom">
 
                             <h1>Fecha de Nacimiento:</h1>
-                            <input id="DOB" type="text" value="<?php echo $FdN?>">
+                            <input id="DOB" type="text" value="<?php echo $FdN ?>">
                             <hr id="Seven" class="InputBottom">
                         </div>
                         <button id="Submit" type="submit" class="btn btn-primary">Submit</button>
@@ -173,6 +173,114 @@ $Username = $_SESSION['Usuario'];
                 </section>
                 <section id="ReservacionesPanel" class="ContenidoSecciones">
                     <h1>Reservaciones</h1>
+                    <section id="TestOO" class="TiqueteInfo">
+                        <section class="TiqueteInfoPanel1 panelSecciones">
+                            <h1><i class="fas fa-3x fa-train"></i>
+                                <br>
+                                Tren Interamericano
+                            </h1>
+                        </section>
+                        <section class="TiqueteInfoPanel2 panelSecciones">
+                            <h3 class="DateH3 tiquetContentLeft">Feb 14 Sun</h3>
+                            <br>
+                            <h3 class="Station1H3 tiquetContentLeft">San José</h3>
+                            <br>
+                            <h3 class="Station2H3 tiquetContentLeft">Costa Rica</h3>
+                        </section>
+                        <section class="TiqueteInfoPanel3 panelSecciones">
+                        </section>
+                    </section>
+                    <section class="TiqueteInfo">
+                        <section class="TiqueteInfoPanel1 panelSecciones">
+                            <h1><i class="fas fa-3x fa-train"></i>
+                                <br>
+                                Tren Interamericano
+                            </h1>
+                        </section>
+                        <section class="TiqueteInfoPanel2 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel3 panelSecciones">
+                        </section>
+                    </section>
+                    <section class="TiqueteInfo">
+                        <section class="TiqueteInfoPanel1 panelSecciones">
+                            <h1><i class="fas fa-3x fa-train"></i>
+                                <br>
+                                Tren Interamericano
+                            </h1>
+                        </section>
+                        <section class="TiqueteInfoPanel2 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel3 panelSecciones">
+                        </section>
+                    </section>
+                    <section class="TiqueteInfo">
+                        <section class="TiqueteInfoPanel1 panelSecciones">
+                            <h1><i class="fas fa-3x fa-train"></i>
+                                <br>
+                                Tren Interamericano
+                            </h1>
+                        </section>
+                        <section class="TiqueteInfoPanel2 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel3 panelSecciones">
+                        </section>
+                    </section>
+                    <section class="TiqueteInfo">
+                        <section class="TiqueteInfoPanel1 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel2 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel3 panelSecciones">
+                        </section>
+                    </section>
+                    <section class="TiqueteInfo">
+                        <section class="TiqueteInfoPanel1 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel2 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel3 panelSecciones">
+                        </section>
+                    </section>
+                    <section class="TiqueteInfo">
+                        <section class="TiqueteInfoPanel1 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel2 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel3 panelSecciones">
+                        </section>
+                    </section>
+                    <section class="TiqueteInfo">
+                        <section class="TiqueteInfoPanel1 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel2 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel3 panelSecciones">
+                        </section>
+                    </section>
+                    <section class="TiqueteInfo">
+                        <section class="TiqueteInfoPanel1 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel2 panelSecciones">
+                        </section>
+                        <section class="TiqueteInfoPanel3 panelSecciones">
+                        </section>
+                    </section>
+
+
+
+                    <!-- <section class="tabs">
+                    <h1 class="LgoH1">1</h1>
+                    </section>
+                    <section class="tabs">
+                    <h1 class="LgoH1">2</h1>
+                </section>
+                    <section class="tabs">
+                    <h1 class="LgoH1">3</h1>
+                </section>
+                    <section class="tabs">
+                    <h1 class="LgoH1">4</h1> -->
+                </section>
                 </section>
                 <section id="HorariosPanel" class="ContenidoSecciones">
                     <h1>Horarios</h1>
