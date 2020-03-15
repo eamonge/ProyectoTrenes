@@ -1,13 +1,8 @@
 
-body{
-	 background-image: url("../img/FondoLogin.jpg");
-	 background-repeat: no-repeat;
-	 background-size: auto;
-	 background-position: center;
-	 /* <p>Ingrese sus datos para iniciar sesion</p>
-	     <p>Ingrese su Usuario <input type="text" name="txtUsuario"></p>
-	     <p>Ingrese su clave <input type="text" name="txtClave"></p>
-    <p><button onclick= "Login(txtUsuario.value,txtClave.value)">Ingresar</button></p> */
+body
+{
+	 background: url("../img/bckg_loginpanel.jpeg") no-repeat center center fixed;
+	 background-size: cover;
 }
 
 #marco
@@ -27,26 +22,27 @@ body{
 {
 	margin-left: 495px;
 	margin-top: 12px;
-	background-image:url("../Img/accept.png");
-	background-repeat:no-repeat;
 	height:50px;
 	width:50px;
-	background-position:center;
-	background-size: cover;
 	background-color: #ffffff;
 	border: #FFF;
 	padding: 2px;
 }
 #Out
 {
-	
-	background-image:url("../Img/back.png");
-	background-repeat:no-repeat;
 	height:50px;
 	width:50px;
-	background-position:center;
-	background-size: cover;
 	background-color: #ffffff;
 	border: #FFF;
 	padding: 2px;
+}
+
+#marco #TitLoginPagina
+{
+	font-size: 30pt;
+}
+
+#marco .marcoTagInfo
+{
+	font-size: 15pt;
 }
