@@ -1,6 +1,6 @@
-#menu * { list-style:none;}
+#menu * { list-style:none; list-style-type: none;}
 #menu li{ line-height:180%;}
-#menu li a{color:#222; text-decoration:none;}
+#menu li a{color:black; text-decoration:none;}
 #menu li a:before{ content:"\025b8"; color:#ddd; margin-right:4px;}
 #menu input[name="list"] {
     position: absolute;
