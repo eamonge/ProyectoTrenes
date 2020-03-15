@@ -1,0 +1,48 @@
+
+body
+{
+	 background: url("../img/bckg_loginpanel.jpeg") no-repeat center center fixed;
+	 background-size: cover;
+}
+
+#marco
+{
+	background: #ffffff;
+	padding: 5px 20px;
+	border: PowderBlue 10px solid;
+        border-radius: 100px;
+	padding: 1em;
+	border-radius: 5px;
+	width: 600px;
+	height: 300px;
+	margin: 0 auto;
+	margin-top: 300px;
+}
+#Ing
+{
+	margin-left: 495px;
+	margin-top: 12px;
+	height:50px;
+	width:50px;
+	background-color: #ffffff;
+	border: #FFF;
+	padding: 2px;
+}
+#Out
+{
+	height:50px;
+	width:50px;
+	background-color: #ffffff;
+	border: #FFF;
+	padding: 2px;
+}
+
+#marco #TitLoginPagina
+{
+	font-size: 30pt;
+}
+
+#marco .marcoTagInfo
+{
+	font-size: 15pt;
+}
