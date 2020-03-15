@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div id="marco" STYLE="color: orange">
+    <div id="marco">
         <form action="../includes/login.inc.php" method="POST">
             <b id="TitLoginPagina">Iniciar sesión</b>
             <p class="marcoTagInfo">Correo</p>

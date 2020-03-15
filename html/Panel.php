@@ -1,6 +1,7 @@
 <?php
 session_start();
-$Username = $_SESSION['Usuario'];
+// $Username = $_SESSION['Usuario'];
+$Correo = $_SESSION['Correo'];
 // $UserID = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
@@ -17,10 +18,36 @@ $Username = $_SESSION['Usuario'];
 <body>
     <div id="SidePanel">
         <div id="HdrDiv">
+            <?php
+
+            $conn = mysqli_connect("localhost", "root", "", "testdb");
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $conn->query("SET CHARACTER SET utf8");
+
+            $sql = "SELECT idUsuario
+            ,Nombre
+            ,PrimerApellido
+            ,SegundoApellido
+            ,Cedula
+            ,Correo
+            ,Contrasena
+            ,FdN
+            FROM usuarios
+            WHERE Correo = '$Correo';";
+            $result = $conn->query($sql);
+
+            while ($row = $result->fetch_assoc()) {
+                $nombreUsuario = $row['Nombre'];
+            }
+            $conn->close();
+            ?>
             <p> <i class="fas fa-tachometer-alt"></i> <br>
                 Panel de Control
                 <br>
-                Bienvenido <?php echo $Username ?>
+                Bienvenido <?php echo $nombreUsuario ?>
             </p>
             <hr>
         </div>
@@ -75,36 +102,13 @@ $Username = $_SESSION['Usuario'];
             <div id="ContContainer" class="container">
                 <section id="AjustesPanel" class="ContenidoSecciones">
                     <?php
-                    // session_start();
 
                     $conn = mysqli_connect("localhost", "root", "", "testdb");
-                    // Check connection
                     if ($conn->connect_error) {
                         die("Connection failed: " . $conn->connect_error);
                     }
 
                     $conn->query("SET CHARACTER SET utf8");
-                    //     $sql = "SELECT idUsuario
-                    //           ,Nombre
-                    //           ,PrimerApellido
-                    //           ,SegundoApellido
-                    //           ,Cedula
-                    //           ,Correo
-                    //           ,Contrasena
-                    //           ,FdN
-                    //   FROM usuarios
-                    //   WHERE Nombre = 1;";
-
-                    //     $sql = "SELECT idUsuario
-                    //           ,Nombre
-                    //           ,PrimerApellido
-                    //           ,SegundoApellido
-                    //           ,Cedula
-                    //           ,Correo
-                    //           ,Contrasena
-                    //           ,FdN
-                    //   FROM usuarios
-                    //   WHERE Nombre = 1;";
 
                     $sql = "SELECT idUsuario
                     ,Nombre
@@ -115,7 +119,7 @@ $Username = $_SESSION['Usuario'];
                     ,Contrasena
                     ,FdN
                     FROM usuarios
-                    WHERE Nombre = '$Username';";
+                    WHERE Correo = '$Correo';";
 
                     $result = $conn->query($sql);
 
