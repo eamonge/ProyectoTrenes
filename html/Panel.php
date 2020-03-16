@@ -3,6 +3,36 @@ session_start();
 // $Username = $_SESSION['Usuario'];
 $Correo = $_SESSION['Correo'];
 // $UserID = $_SESSION['id'];
+
+$server = "localhost";
+$username = "root";
+$password = "";
+$dbname = "testdb";
+
+$conn = mysqli_connect($server, $username, $password, $dbname);
+$conn->query("SET CHARACTER SET utf8");
+
+//Query para las estaciones
+$query = "SELECT *
+        FROM estaciones";
+$result = mysqli_query($conn, $query);
+$options = "";
+while ($row = mysqli_fetch_array($result)) {
+    $options = $options . "<option>$row[1], $row[2]</option>";
+}
+
+//Query para los horarios
+$queryHorarios = " SELECT *
+                FROM horarioestaciones";
+$resultHorarios = mysqli_query($conn, $queryHorarios);
+$optionsHorarios = "";
+
+while ($rowHorarios = mysqli_fetch_array($resultHorarios)) {
+    $optionsHorarios = $optionsHorarios . "<option>$rowHorarios[2]</option>";
+}
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -177,120 +207,46 @@ $Correo = $_SESSION['Correo'];
                 </section>
                 <section id="ReservacionesPanel" class="ContenidoSecciones">
                     <h1>Reservaciones</h1>
-                    <section id="TestOO" class="TiqueteInfo">
-                        <section class="TiqueteInfoPanel1 panelSecciones">
-                            <h1><i class="fas fa-3x fa-train"></i>
-                                <br>
-                                Tren Interamericano
-                            </h1>
+                    <form action="" method="post">
+                        <section id="ReservContenido">
+                            <section id="DesdeSect" class="ReservSect">
+                                <h3>Desde:</h3>
+                                <select>
+                                    <?php echo $options ?>
+                                </select>
+                            </section>
+                            <section id="HastaSect" class="ReservSect">
+                                <h3>Hasta:</h3>
+                                <select>
+                                    <?php echo $options ?>
+                                </select>
+                            </section>
+                            <br><br>
+                            <section id="HorarioSect" class="ReservSect BgReservSect">
+                                <h3>Elegir Horario:</h3>
+                                <select>
+                                    <?php echo $optionsHorarios ?>
+                                </select>
+                            </section>
+                            <br><br>
+                            <section id="FerroSect" class="ReservSect BgReservSect">
+                                <h3>Elegir la compañía deseada:</h3>
+                                <select>
+                                    <?php echo $options ?>
+                                </select>
+                            </section>
+                            <button id="BtnCancel">Cancelar</button>
+                            <button id="BtnReserv">Reservar</button>
                         </section>
-                        <section class="TiqueteInfoPanel2 panelSecciones">
-                            <h3 class="DateH3 tiquetContentLeft">Feb 14 Sun</h3>
-                            <br>
-                            <h3 class="Station1H3 tiquetContentLeft">San José</h3>
-                            <br>
-                            <h3 class="Station2H3 tiquetContentLeft">Costa Rica</h3>
-                        </section>
-                        <section class="TiqueteInfoPanel3 panelSecciones">
-                        </section>
-                    </section>
-                    <section class="TiqueteInfo">
-                        <section class="TiqueteInfoPanel1 panelSecciones">
-                            <h1><i class="fas fa-3x fa-train"></i>
-                                <br>
-                                Tren Interamericano
-                            </h1>
-                        </section>
-                        <section class="TiqueteInfoPanel2 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel3 panelSecciones">
-                        </section>
-                    </section>
-                    <section class="TiqueteInfo">
-                        <section class="TiqueteInfoPanel1 panelSecciones">
-                            <h1><i class="fas fa-3x fa-train"></i>
-                                <br>
-                                Tren Interamericano
-                            </h1>
-                        </section>
-                        <section class="TiqueteInfoPanel2 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel3 panelSecciones">
-                        </section>
-                    </section>
-                    <section class="TiqueteInfo">
-                        <section class="TiqueteInfoPanel1 panelSecciones">
-                            <h1><i class="fas fa-3x fa-train"></i>
-                                <br>
-                                Tren Interamericano
-                            </h1>
-                        </section>
-                        <section class="TiqueteInfoPanel2 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel3 panelSecciones">
-                        </section>
-                    </section>
-                    <section class="TiqueteInfo">
-                        <section class="TiqueteInfoPanel1 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel2 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel3 panelSecciones">
-                        </section>
-                    </section>
-                    <section class="TiqueteInfo">
-                        <section class="TiqueteInfoPanel1 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel2 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel3 panelSecciones">
-                        </section>
-                    </section>
-                    <section class="TiqueteInfo">
-                        <section class="TiqueteInfoPanel1 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel2 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel3 panelSecciones">
-                        </section>
-                    </section>
-                    <section class="TiqueteInfo">
-                        <section class="TiqueteInfoPanel1 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel2 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel3 panelSecciones">
-                        </section>
-                    </section>
-                    <section class="TiqueteInfo">
-                        <section class="TiqueteInfoPanel1 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel2 panelSecciones">
-                        </section>
-                        <section class="TiqueteInfoPanel3 panelSecciones">
-                        </section>
-                    </section>
-
-
-
-                    <!-- <section class="tabs">
-                    <h1 class="LgoH1">1</h1>
-                    </section>
-                    <section class="tabs">
-                    <h1 class="LgoH1">2</h1>
-                </section>
-                    <section class="tabs">
-                    <h1 class="LgoH1">3</h1>
-                </section>
-                    <section class="tabs">
-                    <h1 class="LgoH1">4</h1> -->
-                </section>
+                    </form>
                 </section>
                 <section id="HorariosPanel" class="ContenidoSecciones">
                     <h1>Horarios</h1>
+                    <h3>sefr</h3>
                 </section>
                 <section id="NotificacionesPanel" class="ContenidoSecciones">
                     <h1>Notificaciones</h1>
+                </section>
                 </section>
             </div>
         </div>
