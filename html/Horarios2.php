@@ -1,92 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>HorariosUI</title>
-</head>
-<body>
-	<center>
-	<h1>Horarios de Trenes</h1>
-	<img src="../img/tren.jpg" width="50%" height="50%">
-	</center>
-	<div class="pre-spoiler">
-	<span style=><h1>Rutas</h1></span>
-	<input type="button" value="Mostrar" style="width:80px;font-size:15px;margin:0px;padding:0px;"
-	onclick="if(this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = '';this.innerText = ''; this.value = 'Ocultar'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.value = 'Mostrar';}"
-	</div>
-	<div>
-	<div class="spoiler" style="display: none;">
 
-	<table border="1" cellpadding="0" cellspacing="0" width="100%" height="250">
-	<tr>
-		<th bgcolor="lightblue"><h2>Trayecto</h2></th>
-		<th bgcolor="lightblue"><h2>Salida</h2></th>
-		<th bgcolor="lightblue"><h2>Llegada</h2></th>
-		<th bgcolor="lightblue"><h2>Duracion</h2></th>
-	</tr>
-	<tr>
-		<th bgcolor="lightgray" align="center" rowspan="4">San Jose-Cartago</th>
-		<th bgcolor="lightgray" align="center">5:00am</th>
-		<th bgcolor="lightgray" align="center">6:00am</th>
-		<th bgcolor="lightgray" align="center">60min</th>
-    </tr>
-    <tr>
-		<th bgcolor="lightgray" align="center">8:00am</th>
-		<th bgcolor="lightgray" align="center">9:00am</th>
-		<th bgcolor="lightgray" align="center">60min</th>
-    </tr>
-    <tr>
-		<th bgcolor="lightgray" align="center">3:00pm</th>
-		<th bgcolor="lightgray" align="center">3:55am</th>
-		<th bgcolor="lightgray" align="center">55min</th>
-    </tr>
-    <tr>
-		<th bgcolor="lightgray" align="center">6:00pm</th>
-		<th bgcolor="lightgray" align="center">6:55pm</th>
-		<th bgcolor="lightgray" align="center">55min</th>
-    </tr>
-    <tr>
-		<th align="center" rowspan="4">San Jose-Heredia</th>
-		<th align="center">5:15am</th>
-		<th align="center">5:55am</th>
-		<th align="center">40min</th>
-    </tr>
-    <tr>
-		<th align="center">7:00am</th>
-		<th align="center">7:40am</th>
-		<th align="center">40min</th>
-    </tr>
-    <tr>
-		<th align="center">3:20pm</th>
-		<th align="center">4:00pm</th>
-		<th align="center">40min</th>
-    </tr>
-    <tr>
-		<th align="center">6:30pm</th>
-		<th align="center">7:10pm</th>
-		<th align="center">40min</th>
-    </tr>
-    <tr>
-		<th bgcolor="lightgray" align="center" rowspan="4">San Jose-Alajuela</th>
-		<th bgcolor="lightgray" align="center">6:45am</th>
-		<th bgcolor="lightgray" align="center">7:35am</th>
-		<th bgcolor="lightgray" align="center">50min</th>
-    </tr>
-    <tr>
-		<th bgcolor="lightgray"align="center">8:00am</th>
-		<th bgcolor="lightgray" align="center">8:50am</th>
-		<th bgcolor="lightgray" align="center">50min</th>
-    </tr>
-    <tr>
-		<th bgcolor="lightgray" align="center">3:30pm</th>
-		<th bgcolor="lightgray" align="center">4:20pm</th>
-		<th bgcolor="lightgray" align="center">50min</th>
-    </tr>
-    <tr>
-		<th bgcolor="lightgray" align="center">5:30pm</th>
-		<th bgcolor="lightgray" align="center">6:20pm</th>
-		<th bgcolor="lightgray" align="center">50min</th>
-    </tr>
-	</div>
-	</div>
+<head>
+	<title>HorariosUI</title>
+</head>
+
+<body>
+	<h1>Horarios</h1>
+	<section class="tablasubSecc">
+		<table>
+			<tr>
+				<th>Número de tren</th>
+				<th>Día de operación</th>
+				<th>Fecha</th>
+				<th>Llegada</th>
+				<th>Salida</th>
+				<th>Nombre de la estación</th>
+				<th></th>
+			</tr>
+			<?php
+			$conn = mysqli_connect("localhost", "root", "", "testdb");
+			// Check connection
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+
+			//Establece el charset del display de la info de BD como UTF (soporta tildes)
+			$conn->query("SET CHARACTER SET utf8");
+			//Consulta BD
+			$sql = "SELECT
+                        T.TrainNo AS 'Número de tren'
+                        ,HO.Fecha AS 'Dia de operación'
+                        ,HD.Fecha AS 'Fecha'
+                        ,HE.HoraLlegada  AS 'Llegada'
+                        ,HE.HoraSalida AS 'Salida'
+                        ,ES.NombreEstacion AS 'Nombre estación'
+                  FROM trenes AS T
+                  INNER JOIN horarios AS HO
+                  ON T.Id = HO.idTren
+                  INNER JOIN horarioestaciones AS HE
+                  ON HO.Horarioid = HE.Id
+                  INNER JOIN estaciones AS ES
+                  ON HE.IdEstacion = ES.id
+                  INNER JOIN horariosdias AS HD
+				  ON HD.idHorario = HO.Id;";
+				  
+				  //Ejecutar el resultado o la consulta
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				// output data of each row
+				while ($row = $result->fetch_assoc()) {
+					echo "<tr><td>" . $row["Número de tren"] . "</td><td>" . $row["Dia de operación"] . "</td><td>"
+						. $row["Fecha"] . "</td><td>" . $row["Llegada"] . "</td><td>" . $row["Salida"] . "</td><td>"
+						. $row["Nombre estación"] . "</td><td>" . "<i class='fas fa-edit'></i>" . "</td></tr>";
+				}
+				echo "</table>";
+			} else {
+				echo "0 results";
+			}
+			$conn->close();
+			?>
+		</table>
+		<button>Guardar</button>
+		<button>Cancelar</button>
+	</section>
+	<script src="https://kit.fontawesome.com/03593bd05b.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
+
 </html>

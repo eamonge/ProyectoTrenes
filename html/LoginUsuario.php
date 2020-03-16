@@ -21,6 +21,7 @@
             <button type="submit">Ingresar</button>
             <button>Cancelar</button>
         </form>
+        <p>No tienes cuenta? ¡Crea un <a href="RegistroUsuario.php">aquí</a>!</p>
     </div>
     <script src="https://kit.fontawesome.com/03593bd05b.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
