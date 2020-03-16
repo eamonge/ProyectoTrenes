@@ -312,7 +312,7 @@ tr:nth-child(odd)
     margin: 0;
     opacity: 0;
     z-index: 0;
-
+    display: block;
 }
 
 #FormGroupAjustes
@@ -338,10 +338,12 @@ tr:nth-child(odd)
 #AjustesPanel form
 {
     position: relative;
-    left: 15%;
-    margin: 0;
-    background-color: pink;
-    width: 50%;
+    text-align: center;
+    /* left: 15%; */
+    padding: 5px;
+
+    background-color: cadetblue;
+    width: 100%;
 }
 
 #AjustesPanel button
@@ -394,27 +396,123 @@ tr:nth-child(odd)
 
 #ReservacionesPanel
 {
-    opacity: 1;
+    opacity: 0;
     margin: 0;
+    display: block;
     z-index: 0;
 }
+
+#ReservacionesPanel select
+{
+    border: none;
+    border-bottom: solid 2px #2494A2;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    padding: 2px;
+    margin: 5px;
+    font-size: 12pt;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ReservSect h3
+{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+.ReservSect
+{
+    /* border: solid 2px #2494A2; */
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    padding: 5px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.ReservSect select
+{
+    text-align-last:center;
+}
+
+.ReservSect select:focus
+{
+    outline: 0;
+}
+
+.BgReservSect
+{
+    width: 93%;
+}
+
+#HorarioSect select
+{
+    text-align-last:center;
+    /* direction: rtl; */
+    position: relative;
+    /* left: 30%; */
+}
+
+.BgReservSect select
+{
+    position: relative;
+    width: 50%;
+    text-align-last:center;
+    left: 25%;
+}
+
+#ReservContenido
+{
+    position: relative;
+    left: 25%;
+    width: 50%;
+    padding: 5px;
+    display: inline-block;
+}
+
+#ReservContenido button
+{
+    position: relative;
+    left: 30%;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    border-bottom: solid 2px #2494A2;
+    /* border: solid 2px #2494A2; */
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    font-size: 14pt;
+    background-color: rgba(0, 0, 0, 0);
+    font-family: 'Montserrat', sans-serif;
+    transition: all 300ms;
+}
+
+#ReservContenido button:hover
+{
+    transform: translateY(-10px);
+    color: #2494A2;
+}
+
+/* #ReservacionesPanel select:focus{
+    
+} */
+
 
 #HorariosPanel
 {
     opacity: 0;
+    display: block;
     margin: 0;
     z-index: 0;
 }
 
 #ReservacionesPanel h1
 {
-    
     font-family: 'Montserrat', sans-serif;
 }
 
 #NotificacionesPanel
 {
     opacity: 0;
+    display: block;
     margin: 0;
     z-index: 0;
 }

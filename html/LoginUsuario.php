@@ -13,9 +13,9 @@
         <form action="../includes/login.inc.php" method="POST">
             <b id="TitLoginPagina">Iniciar sesión</b>
             <p class="marcoTagInfo">Correo</p>
-            <input type="text" name="txtUsuario" size="50" placeholder="Username" style="height:20px">
+            <input type="text" name="txtUsuario" size="50" placeholder="Username" style="height:20px" autocomplete="off">
             <p class="marcoTagInfo">Contraseña</p>
-            <input type="password" name="txtClave" size="50" placeholder="Password" style="height:20px">
+            <input type="password" name="txtClave" size="50" placeholder="Password" style="height:20px" autocomplete="off">
             <br>
             <br>
             <button type="submit">Ingresar</button>

@@ -26,18 +26,19 @@ AjustesBtn.addEventListener('click', function(){
     NotifSecc.style.opacity = "0";
 
     AjustesSecc.style.zIndex = "1";
+    ContentMenu.scrollTop = 0;
     ReservSecc.style.zIndex = "0";
     HorariosSecc.style.zIndex = "0";
     NotifSecc.style.zIndex = "0";
 });
 
 ReservacionesBtn.addEventListener('click', function(){
-    ReservSecc.style.transition = "opacity 300ms"
+    ReservSecc.style.transition = "all 300ms"
     AjustesSecc.style.opacity = "0";
     ReservSecc.style.opacity = "1"; 
     HorariosSecc.style.opacity = "0";
     NotifSecc.style.opacity = "0";
-
+    ContentMenu.scrollTop = 0;
     AjustesSecc.style.zIndex = "0";
     ReservSecc.style.zIndex = "1";
     HorariosSecc.style.zIndex = "0";
@@ -49,6 +50,7 @@ HorariosBtn.addEventListener('click', function(){
     AjustesSecc.style.opacity = "0";
     ReservSecc.style.opacity = "0";
     HorariosSecc.style.opacity = "1";
+    ContentMenu.scrollTop = 0;
     NotifSecc.style.opacity = "0";
 
     AjustesSecc.style.zIndex = "0";
@@ -63,10 +65,9 @@ NotifBtn.addEventListener('click', function () {
     ReservSecc.style.opacity = "0";
     HorariosSecc.style.opacity = "0";
     NotifSecc.style.opacity = "1";
-
+    ContentMenu.scrollTop = 0;
     AjustesSecc.style.zIndex = "0";
     ReservSecc.style.zIndex = "0";
     HorariosSecc.style.zIndex = "0";
     NotifSecc.style.zIndex = "1";
 });
-
