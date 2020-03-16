@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+
+.formulario {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .form {
+    width: 600px;
+  }
+
+input
+{
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	border-bottom: solid 2px #DBB13B;
+	color: #DBB13B;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14pt;
+}
+
+.btn
+{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14pt;
+	border: solid 2px #DBB13B;
+	color: white;
+	background-color: #DBB13B;
+	transition: all 300ms;
+	margin: 2px;
+	padding: 5px;
+}
+
+button:hover
+{
+	border: solid 2px black;
+}
+    
