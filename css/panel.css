@@ -467,6 +467,7 @@ tr:nth-child(odd)
     width: 50%;
     padding: 5px;
     display: inline-block;
+    border: solid 2px darkmagenta;
 }
 
 #ReservContenido button

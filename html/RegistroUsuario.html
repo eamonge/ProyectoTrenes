@@ -1,25 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Usuario Login</title>
-    <script languaje = "JavaScript">
-        
-        function Registrarse(){
+    <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+    <title>Registro Usuario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/diseñoRegistro.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-        }
-
-    </script>
 </head>
 <body>
-    <p>Ingrese sus datos para registrarse</p>
-    <p>Ingrese su ID<input type="text" name="txtID"></p>
-    <p>Ingrese su nombre<input type="text" name="txtNombre"></p>
-    <p>Ingrese sus apellidos<input type="text" name="txtApellidos"></p>
-    <p>Ingrese fecha de nacimiento<input type="text" name="txtFDN"></p>
-    <p>Ingrese su correo electronico<input type="text" name="txtCorreo"></p>
-    <p><button>Ingresar</button></p>
+    <div id="formulario">
+        <h1 class="bd-title">Registro</h1>
+    <form class="border p-3 form">
+        <div class="form-group">
+            <label for="inputemail">Identificaci&oacuten</label>
+            <input type="text" class="form-control" id="inputemail" placeholder="Ingrese su ID">
+        </div>
+        <div class="form-group">
+            <label for="inputnombre">Nombre Completo</label>
+            <input type="text" class="form-control" id="inputnombre" placeholder="Ingrese su nombre">
+        </div>
+        <div class="form-group">
+            <label for="inputprimerapellido">Primer apellido</label>
+            <input type="text" class="form-control" id="inputprimerapellido" placeholder="Ingrese su primer apellido">
+        </div>
+        <div class="form-group">
+            <label for="inputsegundoapellido">Segundo apellido</label>
+            <input type="text" class="form-control" id="inputsegundoapellido" placeholder="Ingrese su segundo apellido">
+        </div>
+        <div class="form-group">
+            <label for="inputFDN">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="inputFDN" placeholder="Ingrese su fecha de nacimiento"> 
+        </div>
+        <div class="form-group">
+            <label for="inputemail">Correo electr&oacutenico</label>
+            <input type="email" class="form-control" id="inputemail" placeholder="Ingrese su ID">
+        </div>
+        <div class="form-group">
+            <label for="">Contrase&ntildea</label>
+            <input type="password" class="form-control" id="inputpassword" placeholder="Ingrese su Contraseña">
+        </div>
+        <button type="submit" class="btn">Registrarse</button>
+    </form>
+    </div>
 </body>
-<footer>
-</footer>
 </html>
