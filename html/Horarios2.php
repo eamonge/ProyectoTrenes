@@ -3,10 +3,13 @@
 
 <head>
 	<title>HorariosUI</title>
+	<link rel="stylesheet" href="../css/estiloHorarios.css">
 </head>
 
 <body>
+	<header>
 	<h1>Horarios</h1>
+	</header>
 	<section class="tablasubSecc">
 		<table>
 			<tr>
