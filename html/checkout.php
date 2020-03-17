@@ -16,7 +16,7 @@
           
           <div class="card space icon-relative">
             <label class="label">Numero de tarjeta:</label>
-            <input type="text" class="input" data-mask="0000 0000 0000 0000" placeholder="Card Number">
+            <input type="text" class="input" data-mask="0000 0000 0000 0000" placeholder="Numero de tarjeta">
             <i class="far fa-credit-card"></i>
           </div>
           <div class="card-grp space">
@@ -44,18 +44,20 @@
 </div>
 <div class="preview">
   <h2>Informacion de compra</h2>
-  <label class="label">Usuario:</label>
-  <input type="text" class="input">
-  <label class="label">Estacion</label>
-  <input type="text" class="input">
-  <label class="label">Tren</label>
-  <input type="text" class="input">
-  <label class="label">Hora de Salida</label>
-  <input type="text" class="input">
-  <label class="label">Hora de Entrada</label>
-  <input type="text" class="input">
-  <label class="label">Monto</label>
-  <input type="text" class="input">
+  <label class="label2">Usuario:</label>
+  <input type="text" class="input" value="Eduardo">
+  <label class="label2">Estacion</label>
+  <input type="text" class="input" value="San Jose">
+  <label class="label2">Tren</label>
+  <input type="text" class="input" value="Thomas el ChuChu">
+  <label class="label2">Hora de Salida</label>
+  <input type="text" class="input" value="09:00">
+  <label class="label2">Hora de Llegada</label>
+  <input type="text" class="input" value="10:00">
+  <label class="label2">Destinos</label>
+  <input type="text" class="input" value="Cartago">
+
+  
 
 </div>
         
