@@ -30,9 +30,6 @@ $optionsHorarios = "";
 while ($rowHorarios = mysqli_fetch_array($resultHorarios)) {
     $optionsHorarios = $optionsHorarios . "<option>$rowHorarios[2]</option>";
 }
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,238 +40,124 @@ while ($rowHorarios = mysqli_fetch_array($resultHorarios)) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Panel de Control</title>
     <link rel="stylesheet" href="../css/panel.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
-    <div id="SidePanel">
-        <div id="HdrDiv">
-            <?php
+    <div id="Navbar">
+        <?php
 
-            $conn = mysqli_connect("localhost", "root", "", "testdb");
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
+        $conn = mysqli_connect("localhost", "root", "", "testdb");
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-            $conn->query("SET CHARACTER SET utf8");
+        $conn->query("SET CHARACTER SET utf8");
 
-            $sql = "SELECT idUsuario
-            ,Nombre
-            ,PrimerApellido
-            ,SegundoApellido
-            ,Cedula
-            ,Correo
-            ,Contrasena
-            ,FdN
-            FROM usuarios
-            WHERE Correo = '$Correo';";
-            $result = $conn->query($sql);
+        $sql = "SELECT idUsuario
+        ,Nombre
+        ,PrimerApellido
+        ,SegundoApellido
+        ,Cedula
+        ,Correo
+        ,Contrasena
+        ,FdN
+        FROM usuarios
+        WHERE Correo = '$Correo';";
 
-            while ($row = $result->fetch_assoc()) {
-                $nombreUsuario = $row['Nombre'];
-            }
-            $conn->close();
-            ?>
-            <p> <i class="fas fa-tachometer-alt"></i> <br>
-                Panel de Control
-                <br>
-                Bienvenido <?php echo $nombreUsuario ?>
-            </p>
-            <hr>
-        </div>
-        <div id="SidePanelDv">
-            <br><br>
-            <li>
-                <a id="AjustesLnk">
-                    <i class="fas fa-cog" data-toggle="tooltip" data-placement="right" title="Ajustes"></i>
-                    <!-- <span>Ajustes</span> -->
-                </a>
+        $result = $conn->query($sql);
+
+        while ($row = $result->fetch_assoc()) {
+            $nombre = $row['Nombre'];
+            $PrimApellido = $row['PrimerApellido'];
+            $SegndApellido = $row['SegundoApellido'];
+            $Cedula = $row['Cedula'];
+            $Correo = $row['Correo'];
+            $Contrasena = $row['Contrasena'];
+            $FdN = $row['FdN'];
+        }
+        $conn->close();
+        ?>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="../includes/logout.user.inc.php">Log out</a>
             </li>
-            <br>
-            <li id="B">
-                <a id="ReservLnk" data-toggle="tooltip" data-placement="right" title="Reservaciones">
-                    <i class="fas fa-info-circle"></i>
-                    <!-- <span>Reservaciones</span> -->
-                </a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ir</a>
+                <div class="dropdown-menu">
+                    <a id="OptAjustes" class="dropdown-item" href="#">Ajustes</a>
+                    <a id="OptReserv" class="dropdown-item" href="#">Reservaciones</a>
+                    <a id="OptHorarios" class="dropdown-item" href="#">Horarios</a>
+                </div>
             </li>
-            <br>
-            <!-- <li id="C">
-                <a>
-                    <i class="fas fa-id-card"></i>
-                    <span>
-                        Usuarios
-                    </span>
-                </a>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Bienvenido <?php echo $nombre ?></a>
             </li>
-            <br> -->
-            <li id="D">
-                <a id="HorariosLnk">
-                    <i class="fas fa-calendar-alt" data-toggle="tooltip" data-placement="right" title="Horario"></i>
-                    <!-- <span>Horarios</span> -->
-                </a>
-            </li>
-            <br>
-            <li id="F">
-                <a id="NotifLnk">
-                    <!-- <i class="fas fa-sign-out-alt"></i> -->
-                    <i class="fas fa-bell" data-toggle="tooltip" data-placement="right" title="Notificaciones"></i>
-                    <!-- <span>Notificaciones</span> -->
-                </a>
-            </li>
-            <br>
-            <li id="E">
-                <a>
-                    <i class="fas fa-sign-out-alt" data-toggle="tooltip" data-placement="right" title="Cerrar sesión"></i>
-                    <!-- <span>Cerrar sesión</span> -->
-                </a>
-            </li>
-        </div>
-        <div id="ContentMenu" class="jumbotron jumbotron-fluid">
-            <div id="ContContainer" class="container">
-                <section id="AjustesPanel" class="ContenidoSecciones">
-                    <?php
-
-                    $conn = mysqli_connect("localhost", "root", "", "testdb");
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-
-                    $conn->query("SET CHARACTER SET utf8");
-
-                    $sql = "SELECT idUsuario
-                    ,Nombre
-                    ,PrimerApellido
-                    ,SegundoApellido
-                    ,Cedula
-                    ,Correo
-                    ,Contrasena
-                    ,FdN
-                    FROM usuarios
-                    WHERE Correo = '$Correo';";
-
-                    $result = $conn->query($sql);
-
-                    while ($row = $result->fetch_assoc()) {
-                        $nombre = $row['Nombre'];
-                        $PrimApellido = $row['PrimerApellido'];
-                        $SegndApellido = $row['SegundoApellido'];
-                        $Cedula = $row['Cedula'];
-                        $Correo = $row['Correo'];
-                        $Contrasena = $row['Contrasena'];
-                        $FdN = $row['FdN'];
-                    }
-                    $conn->close();
-                    ?>
-                    <h1>Ajustes</h1>
-                    <hr>
-                    <br>
-                    <form>
-                        <div id="FormGroupAjustes">
-                            <h1>Usuario/Nombre:</h1>
-                            <input id="Name" type="text" value="<?php echo $nombre ?>">
-                            <hr id="One" class="InputBottom">
-
-                            <h1>Primer Apellido:</h1>
-                            <input id="PA" type="text" value="<?php echo $PrimApellido ?>">
-                            <hr id="Two" class="InputBottom">
-
-                            <h1>Segundo Apellido:</h1>
-                            <input id="SA" type="text" value="<?php echo $SegndApellido ?>">
-                            <hr id="Three" class="InputBottom">
-
-                            <h1>Cédula:</h1>
-                            <input id="CED" type="text" value="<?php echo $Cedula ?>">
-                            <hr id="Four" class="InputBottom">
-
-
-                            <h1>Correo:</h1>
-                            <input id="CORR" type="text" value="<?php echo $Correo ?>">
-                            <hr id="Five" class="InputBottom">
-
-                            <h1>Contraseña:</h1>
-                            <input id="PWD" type="password" value="<?php echo $Contrasena ?>">
-                            <hr id="Six" class="InputBottom">
-
-                            <h1>Fecha de Nacimiento:</h1>
-                            <input id="DOB" type="text" value="<?php echo $FdN ?>">
-                            <hr id="Seven" class="InputBottom">
-                        </div>
-                        <button id="Submit" type="submit" class="btn btn-primary">Submit</button>
-                        <button id="Cancel" type="submit" class="btn btn-Cancel">Cancelar</button>
-                        <br><br>
-                        <hr id="ButtonHR">
-                        <br><br>
-                    </form>
-                </section>
-                <section id="ReservacionesPanel" class="ContenidoSecciones">
-                    <h1>Reservaciones</h1>
-                    <form action="" method="post">
-                        <section id="ReservContenido">
-                            <section id="DesdeSect" class="ReservSect">
-                                <h3>Desde:</h3>
-                                <select>
-                                    <?php echo $options ?>
-                                </select>
-                            </section>
-                            <section id="HastaSect" class="ReservSect">
-                                <h3>Hasta:</h3>
-                                <select>
-                                    <?php echo $options ?>
-                                </select>
-                            </section>
-                            <br><br>
-                            <section id="HorarioSect" class="ReservSect BgReservSect">
-                                <h3>Elegir Horario:</h3>
-                                <select>
-                                    <?php echo $optionsHorarios ?>
-                                </select>
-                            </section>
-                            <br><br>
-                            <section id="FerroSect" class="ReservSect BgReservSect">
-                                <h3>Elegir la compañía deseada:</h3>
-                                <select>
-                                    <?php echo $options ?>
-                                </select>
-                            </section>
-                            <button id="BtnCancel">Cancelar</button>
-                            <button id="BtnReserv">Reservar</button>
-                        </section>
-                    </form>
-                </section>
-                <section id="HorariosPanel" class="ContenidoSecciones">
-                    <h1>Horarios</h1>
-                    <h3>sefr</h3>
-                </section>
-                <section id="NotificacionesPanel" class="ContenidoSecciones">
-                    <h1>Notificaciones</h1>
-                </section>
-                </section>
+        </ul>
+    </div>
+    <div id="ContentMenuJT" class="jumbotron">
+        <h1 class="display-4">Panel de Control</h1>
+        <div id="CMDisplayAjustes" class="jumbotron JTContenido">
+            <h1 class="lead">Ajustes de usuario</h1>
+            <div id="formularioAjustes">
+                <form class="border p-3 form AjustesGenForm">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" value="<?php echo $nombre ?>">
+                        <label>Primer Apellido</label>
+                        <input type="text" class="form-control" value="<?php echo $PrimApellido ?>">
+                        <label>Segundo Apellido</label>
+                        <input type="text" class="form-control" value="<?php echo $SegndApellido ?>">
+                        <label>Cédula</label>
+                        <input type="text" class="form-control" value="<?php echo $Cedula ?>">
+                        <label>Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" value="<?php echo $FdN ?>">
+                        <label>Correo electrónico</label>
+                        <input type="text" class="form-control" value="<?php echo $Correo ?>">
+                        <label>Contraseña</label>
+                        <input type="password" class="form-control" value="<?php echo $Contrasena ?>">
+                        <label>Confirmar contraseña</label>
+                        <input type="password" class="form-control">
+                    </div>
+                    <button class="btn mt small diagonal">Cancelar</button>
+                    <button class="btn mt small diagonal">Guardar cambios</button>
+                </form>
             </div>
         </div>
-        <!-- <div id="ContentMenu">
-
-        </div> -->
-        <!-- <h1>Bienvenido</h1>
-        <section class="sPanel Sect">
-            <h3>
-            <i class="fas fa-cog"></i>
-                Ajustes</h3>
-        </section>
-        <section class="sPanel Sect">
-            <h3>
-            <i class="fas fa-exclamation"></i>
-                Reservaciones</h3>
-        </section>
-        <section class="sPanel Sect">
-            <h3>
-            <i class="far fa-calendar-alt"></i>
-                Horarios</h3>
-        </section>
-        <section class="sPanel Sect">
-            <h3>
-            <i class="fas fa-sign-out-alt"></i>
-                Cerrar Sesión</h3>
-        </section> -->
-
+        <div id="CMDisplayReserv" class="jumbotron JTContenido">
+            <h1 class="lead">Reservaciones</h1>
+            <div>
+                <form class="border p-3 form AjustesGenForm">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Desde: </label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <?php echo $options ?>
+                        </select>
+                        <label for="exampleFormControlSelect1">Hasta: </label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <?php echo $options ?>
+                        </select>
+                        <label for="exampleFormControlSelect1">Elige el horario deseado: </label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <?php echo $optionsHorarios ?>
+                        </select>
+                        <label for="exampleFormControlSelect1">Elige la Subcompañía: </label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                    <button class="btn mt small diagonal">Cancelar</button>
+                    <button class="btn mt small diagonal">Reservar</button>
+                </form>
+            </div>
+        </div>
+        <div id="CMDisplayHorario" class="jumbotron JTContenido">
+            <h1 class="lead">Here goes content Horarios</h1>
+        </div>
     </div>
     <script src="../js/index.js"></script>
     <script src="https://kit.fontawesome.com/03593bd05b.js" crossorigin="anonymous"></script>

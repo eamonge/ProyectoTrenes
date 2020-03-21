@@ -9,6 +9,12 @@
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <a href="../index.php" class="navItem HomeIcn"><i class="fas fa-home"></i></a>
+        </ul>
+    </nav>
+
     <div id="marco">
         <form action="../includes/login.inc.php" method="POST">
             <b id="TitLoginPagina">Iniciar sesión</b>

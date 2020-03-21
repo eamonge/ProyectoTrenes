@@ -33,7 +33,7 @@ try
             echo "<script type='text/javascript'>alert('Bienvenido $CorreoInput')</script>";
             // $_SESSION['txtUsuario'] = $UsernameInput;
             $_SESSION['Correo'] = $CorreoInput;
-            header('Refresh:0;url=/ProyectoTrenes/html/Panel.php');
+            header('Refresh:0;url=/ProyectoTrenes/html/LoggedUserindex.php');
         }
     } else {
         echo "<script type='text/javascript'>alert('Usuario o contraseña no válida')</script>";

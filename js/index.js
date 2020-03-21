@@ -1,73 +1,105 @@
+var AjustesBtn = document.getElementById('OptAjustes');
+var SectAjustes = document.getElementById('CMDisplayAjustes');
+
+var ReservasBtn = document.getElementById('OptReserv');
+var SectReservas = document.getElementById('CMDisplayReserv');
+
+
+AjustesBtn.addEventListener('click', function(){
+    SectAjustes.style.opacity = "1";
+    SectAjustes.style.zIndex = "1";
+    SectAjustes.style.transition = "all 300ms";
+
+    SectReservas.style.opacity = "0";
+    SectReservas.style.zIndex = "0";
+
+});
+
+ReservasBtn.addEventListener('click', function(){
+    SectAjustes.style.zIndex = "0";
+    SectAjustes.style.opacity = "0";
+
+    SectReservas.style.opacity = "1";
+    SectReservas.style.zIndex = "1";
+
+    
+
+    SectReservas.style.transition = "all 300ms";
+    // SectAjustes.transition = "all 300ms";
+
+});
+
+
 // $(document).ready(function () {
 //     $('[data-toggle="tooltip"]').tooltip();
 // });
 
-var ContentMenu = document.getElementById('ContentMenu');
+// var ContentMenu = document.getElementById('ContentMenu');
 
-var AjustesBtn = document.getElementById('AjustesLnk');
-var AjustesSecc = document.getElementById('AjustesPanel');
+// var AjustesBtn = document.getElementById('AjustesLnk');
+// var AjustesSecc = document.getElementById('AjustesPanel');
 
-var ReservacionesBtn = document.getElementById('ReservLnk');
-var ReservSecc = document.getElementById('ReservacionesPanel');
+// var ReservacionesBtn = document.getElementById('ReservLnk');
+// var ReservSecc = document.getElementById('ReservacionesPanel');
 
-var HorariosBtn = document.getElementById('HorariosLnk');
-var HorariosSecc = document.getElementById('HorariosPanel');
+// var HorariosBtn = document.getElementById('HorariosLnk');
+// var HorariosSecc = document.getElementById('HorariosPanel');
 
-var NotifBtn = document.getElementById('NotifLnk');
-var NotifSecc = document.getElementById('NotificacionesPanel');
+// var NotifBtn = document.getElementById('NotifLnk');
+// var NotifSecc = document.getElementById('NotificacionesPanel');
 
 
 
-AjustesBtn.addEventListener('click', function(){
-    AjustesSecc.style.transition = "opacity 300ms";
-    ReservSecc.style.opacity = "0";
-    HorariosSecc.style.opacity = "0";
-    AjustesSecc.style.opacity = "1";
-    NotifSecc.style.opacity = "0";
+// AjustesBtn.addEventListener('click', function(){
+//     AjustesSecc.style.transition = "opacity 300ms";
+//     ReservSecc.style.opacity = "0";
+//     HorariosSecc.style.opacity = "0";
+//     AjustesSecc.style.opacity = "1";
+//     NotifSecc.style.opacity = "0";
 
-    AjustesSecc.style.zIndex = "1";
-    ContentMenu.scrollTop = 0;
-    ReservSecc.style.zIndex = "0";
-    HorariosSecc.style.zIndex = "0";
-    NotifSecc.style.zIndex = "0";
-});
+//     AjustesSecc.style.zIndex = "1";
+//     ContentMenu.scrollTop = 0;
+//     ReservSecc.style.zIndex = "0";
+//     HorariosSecc.style.zIndex = "0";
+//     NotifSecc.style.zIndex = "0";
+// });
 
-ReservacionesBtn.addEventListener('click', function(){
-    ReservSecc.style.transition = "all 300ms"
-    AjustesSecc.style.opacity = "0";
-    ReservSecc.style.opacity = "1"; 
-    HorariosSecc.style.opacity = "0";
-    NotifSecc.style.opacity = "0";
-    ContentMenu.scrollTop = 0;
-    AjustesSecc.style.zIndex = "0";
-    ReservSecc.style.zIndex = "1";
-    HorariosSecc.style.zIndex = "0";
-    NotifSecc.style.zIndex = "0";
-});
+// ReservacionesBtn.addEventListener('click', function(){
+//     ReservSecc.style.transition = "all 300ms"
+//     AjustesSecc.style.opacity = "0";
+//     ReservSecc.style.opacity = "1"; 
+//     HorariosSecc.style.opacity = "0";
+//     NotifSecc.style.opacity = "0";
+//     ContentMenu.scrollTop = 0;
+//     AjustesSecc.style.zIndex = "0";
+//     ReservSecc.style.zIndex = "1";
+//     HorariosSecc.style.zIndex = "0";
+//     NotifSecc.style.zIndex = "0";
+// });
 
-HorariosBtn.addEventListener('click', function(){
-    HorariosSecc.style.transition = "opacity 300ms";
-    AjustesSecc.style.opacity = "0";
-    ReservSecc.style.opacity = "0";
-    HorariosSecc.style.opacity = "1";
-    ContentMenu.scrollTop = 0;
-    NotifSecc.style.opacity = "0";
+// HorariosBtn.addEventListener('click', function(){
+//     HorariosSecc.style.transition = "opacity 300ms";
+//     AjustesSecc.style.opacity = "0";
+//     ReservSecc.style.opacity = "0";
+//     HorariosSecc.style.opacity = "1";
+//     ContentMenu.scrollTop = 0;
+//     NotifSecc.style.opacity = "0";
 
-    AjustesSecc.style.zIndex = "0";
-    ReservSecc.style.zIndex = "0";
-    HorariosSecc.style.zIndex = "1";
-    NotifSecc.style.zIndex = "0";
-});
+//     AjustesSecc.style.zIndex = "0";
+//     ReservSecc.style.zIndex = "0";
+//     HorariosSecc.style.zIndex = "1";
+//     NotifSecc.style.zIndex = "0";
+// });
 
-NotifBtn.addEventListener('click', function () {
-    NotifSecc.style.transition = "opacity 300ms";
-    AjustesSecc.style.opacity = "0";
-    ReservSecc.style.opacity = "0";
-    HorariosSecc.style.opacity = "0";
-    NotifSecc.style.opacity = "1";
-    ContentMenu.scrollTop = 0;
-    AjustesSecc.style.zIndex = "0";
-    ReservSecc.style.zIndex = "0";
-    HorariosSecc.style.zIndex = "0";
-    NotifSecc.style.zIndex = "1";
-});
+// NotifBtn.addEventListener('click', function () {
+//     NotifSecc.style.transition = "opacity 300ms";
+//     AjustesSecc.style.opacity = "0";
+//     ReservSecc.style.opacity = "0";
+//     HorariosSecc.style.opacity = "0";
+//     NotifSecc.style.opacity = "1";
+//     ContentMenu.scrollTop = 0;
+//     AjustesSecc.style.zIndex = "0";
+//     ReservSecc.style.zIndex = "0";
+//     HorariosSecc.style.zIndex = "0";
+//     NotifSecc.style.zIndex = "1";
+// });

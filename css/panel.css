@@ -3,11 +3,153 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap');
 
-/*  */
-
-
-
 body
+{
+    overflow: auto;
+}
+
+#SidePanelJT
+{
+    position: absolute;
+    left: 0;
+    top: 8%;
+    border-radius: 0;
+    width: 15%;
+    height: 100%;
+    background-color: teal;
+}
+
+#ContentMenuJT
+{
+    position: absolute;
+    top: 8%;
+    left: 0%;
+    width: 100%;
+    height: 92%;
+    border-radius: 0;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0);
+    overflow: scroll;
+}
+
+#Navbar
+{
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 8%;
+    background-color: #0A0E29;
+}
+
+#Navbar ul
+{
+    height: 100%;
+}
+
+#Navbar a
+{
+    text-align: center;
+    height: 100%;
+    color: #DBB13B;
+    font-weight: 600;
+}
+
+#Navbar .dropdown-item
+{
+    color: #0A0E29;
+    font-weight: 600;
+}
+
+.nav-tabs
+{
+    float: right;
+}
+
+.display-4
+{
+    text-align: center;
+}
+
+#ContentMenuJT .JTContenido
+{
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+    position: absolute;
+    color: black;
+    width: 95%;
+    overflow: scroll;
+    height: 100%;
+}
+
+#CMDisplayAjustes
+{
+    overflow-y: scroll;
+    height: 100%;
+    opacity: 0;
+}
+
+#CMDisplayAjustes input
+{
+    color: #0A0E29;
+    background-color: rgba(0, 0, 0, 0);
+    /* border: solid 2px #0A0E29; */
+    margin-bottom: 5px;
+}
+
+#CMDisplayReserv
+{
+    opacity: 0;
+}
+
+#CMDisplayHorario
+{
+    opacity: 0;
+}
+#ContentMenuJT .diagonal {
+	position: relative;
+	color: #0A0E29;
+	border: solid 2px #0A0E29;
+	font-weight: bold;
+	font-family: 'Open Sans', sans-serif;
+	overflow: hidden;
+	z-index: 1;
+	width: 30%;
+	/* left: 5%; */
+	padding: 5px;
+  }
+  
+ #ContentMenuJT .diagonal:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 27px;
+	width: 500%;
+	height: 1000%;
+	background: #0A0E29;
+	z-index: -1;
+	transform-origin: 0% 0%;
+	transform: translateX(calc(20% - 25px)) translateY(10%) rotate(-45deg);
+	transform: translateY(10%) translateX(16%) rotate(-45deg);
+	transition: transform .3s;
+  }
+  #ContentMenuJT .diagonal:hover
+  {
+	  color: white;
+  }
+  
+  #ContentMenuJT .diagonal:hover::after {
+	transform: translateY(5%) translateX(-60px) rotate(-45deg);
+  }
+
+  #ContentMenuJT .AjustesGenForm
+  {
+      position: relative;
+      width: 50%;
+      left: 25%;
+  }
+
+/* body
 {
     scroll-behavior: auto;
 }
@@ -15,19 +157,11 @@ body
 div
 {
     width: 265px;
-
-    /* 
-    font-family: 'Source Sans Pro', sans-serif;
-    font-family: 'Raleway', sans-serif;
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Montserrat', sans-serif; 
-*/
 }
 
 #HdrDiv
 {
     position: fixed;
-    /* background-color: #56BDA2; */
     height: 16%;
     width: 15%;
     text-align: center;
@@ -39,10 +173,8 @@ div
 #HdrDiv p
 {
     font-family: 'Montserrat', sans-serif;
-    /* font-family: 'Odibee Sans', sans-serif; */
     padding-top: 20px;
     color: white;
-    /* padding-top: 10px; */
 }
 
 #SidePanelDv
@@ -59,15 +191,8 @@ div
 #SidePanelDv a
 {
     font-family: 'Raleway', sans-serif;
-    /* color: #2494A2; */
-    /* padding: 10px; */
     color: white;
-    /* display: flex; */
-    /* margin: 0; */
-    /* width: -10px; */
-    /* width: 100%; */
     text-align: center;
-    /* margin-left: 1em; */
     transition: all 300ms;
     margin-left: 40%;
 }
@@ -75,14 +200,8 @@ div
 #SidePanelDv li
 {
     width: auto;
-    /* background-color: green; */
-    /* background-color: red; */
     height: 44px;
     font-size: 1.4vw;
-    /* margin-left: 4em; */
-    /* margin-top: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px; */
     position: relative;
     padding: 5px;
     margin: 5px;
@@ -90,62 +209,10 @@ div
     list-style-type: none;
 }
 
-/* #SidePanelDv a:hover
-{
-    color: #304B78;
-} */
-
 #SidePanelDv a:hover
 {
     color: #626262;
 }
-
-/* #SidePanelDv #AjustesLnk .fa-cog
-{
-    transition: transform 600ms;
-}
-
-#SidePanelDv #AjustesLnk:hover .fa-cog
-{
-    transform: rotate(180deg);
-}
-
-#SidePanelDv .fa-info-circle
-{
-    transition: transform 300ms;
-}
-
-#SidePanelDv #B:hover .fa-info-circle
-{
-    transform: translateY(-20px);
-}
-
-#SidePanelDv .fa-id-card
-{
-    transition: transform 600ms ease-in-out;
-}
-
-#SidePanelDv #C:hover .fa-id-card
-{
-    transform: rotateY(180deg);
-}
-
-#SidePanelDv #E .fa-sign-out-alt
-{
-    transition: transform 300ms ease-in;
-}
-
-
-#SidePanelDv #E:hover .fa-sign-out-alt
-{
-    transform: translateX(10px);
-    
-} */
-
-/* #A:hover ~ #B
-{
-    color: pink;
-} */
 
 #SidePanelDv span
 {
@@ -172,15 +239,12 @@ div
 {
     opacity: 0;
     z-index: -1;
-    /* background-color: goldenrod; */
-    /* height: 100%; */
 }
 
 #CntUsuario h3
 {
     margin-left: 2%;
     font-family: 'Montserrat', sans-serif;
-    /* background-color: red; */
     display: inline;
 }
 
@@ -213,14 +277,10 @@ div
 
 #CntUsuario button:hover
 {
-    /* background-color: #DBB13B;
-    color: black;
-    transition: all 300ms; */
     color: rebeccapurple;
 }
 
 table {
-    /* margin-right: -700px; */
   position: relative;
   border-collapse: collapse;
   width: 75%;
@@ -287,9 +347,6 @@ tr:nth-child(odd)
     position: fixed;
     left: 15%;
     top: 0;
-    /* left:  */
-    /* background-color: teal; */
-    /* background: url('../img/reserv_banner.jpg') no-repeat center center fixed; */
     width: 100%;
     height: 100%;
     overflow: scroll;
@@ -300,7 +357,6 @@ tr:nth-child(odd)
 {
     position: absolute;
     background-color: purple;
-    /* border: solid 1px black; */
     width: 99%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0);
@@ -339,10 +395,7 @@ tr:nth-child(odd)
 {
     position: relative;
     text-align: center;
-    /* left: 15%; */
     padding: 5px;
-
-    background-color: cadetblue;
     width: 100%;
 }
 
@@ -353,7 +406,6 @@ tr:nth-child(odd)
     left: 37%;
     top: 1em;
     font-size: 14pt;
-    /* background-color: red; */
     margin: 5px;
     font-weight: bolder;
     color: black;
@@ -366,7 +418,6 @@ tr:nth-child(odd)
 #AjustesPanel #ButtonHR
 {
     margin: 0;
-    /* margin-top: 11px; */
     margin-left: 40%;
     opacity: 1;
     border: solid 1px black;
@@ -422,8 +473,6 @@ tr:nth-child(odd)
 
 .ReservSect
 {
-    /* border: solid 2px #2494A2; */
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     padding: 5px;
     margin: 5px;
     display: inline-block;
@@ -447,9 +496,7 @@ tr:nth-child(odd)
 #HorarioSect select
 {
     text-align-last:center;
-    /* direction: rtl; */
     position: relative;
-    /* left: 30%; */
 }
 
 .BgReservSect select
@@ -467,7 +514,6 @@ tr:nth-child(odd)
     width: 50%;
     padding: 5px;
     display: inline-block;
-    border: solid 2px darkmagenta;
 }
 
 #ReservContenido button
@@ -478,8 +524,6 @@ tr:nth-child(odd)
     margin: 5px;
     border: none;
     border-bottom: solid 2px #2494A2;
-    /* border: solid 2px #2494A2; */
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     font-size: 14pt;
     background-color: rgba(0, 0, 0, 0);
     font-family: 'Montserrat', sans-serif;
@@ -491,10 +535,6 @@ tr:nth-child(odd)
     transform: translateY(-10px);
     color: #2494A2;
 }
-
-/* #ReservacionesPanel select:focus{
-    
-} */
 
 
 #HorariosPanel
@@ -522,14 +562,10 @@ input
 {
     background-color: rgba(0, 0, 0, 0);
     border: none;
-    /* border-bottom: 2px solid black; */
-    /* border-bottom; */
-    /* border-: 1px; */
     font-family: 'Montserrat', sans-serif;
     padding: 5px;
     font-size: 18pt;
     text-align: center;
-    /* transition: all 3s; */
 }
 
 
@@ -541,7 +577,6 @@ input
     width: 0;
     display: block;
     transition: all 300ms;
-    /*color: red; */
 }
 
 #FormGroupAjustes #Name:hover ~ #One
@@ -616,7 +651,6 @@ input
     margin: 10px;
     margin-left: 4%;
     border: solid 1.5px #E8E8E8;
-    /* background-color: cadetblue; */
     width: 80%;
     height: 200px;
 }
@@ -670,7 +704,6 @@ input
 {
     position: relative;
     background-color: darkgoldenrod;
-    /* border: solid 1px black; */
     top: -25%;
     width: 100%;
     height: 50%;
@@ -695,34 +728,8 @@ input
 {
     float: left;
     height: 100%;
-    background-color: darkcyan;
     width: 25%;
 }
-
-
-/* .Panel2SPanel1
-{
-    float: left;
-    background-color: rebeccapurple;
-    height: 100%;
-    width: 34%;
-}
-
-.Panel2SPanel2
-{
-    background-color: green;
-    float: left;
-    height: 100%;
-    width: 30.5%;
-}
-
-.Panel2SPanel3
-{
-    float: left;
-    height: 100%;
-    width: 34%;
-}
-*/
 
 .tiquetContentLeft
 {
@@ -737,7 +744,6 @@ input
 .tiquetContentRight
 {
     left: 22em;
-    /* top: 0; */
     font-weight: 100;
     margin: 0;
     font-size: 12pt;
@@ -753,4 +759,4 @@ input
 .Station1H3
 {
     color: #636363;
-}
+} */
