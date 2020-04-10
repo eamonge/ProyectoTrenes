@@ -1,35 +1,63 @@
-﻿<!DOCTYPE html>
+<?php
+
+session_start();
+$Correo = $_SESSION['Correo'];
+
+?>
+
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sístema Intl. de Trenes</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
     <div id="Navbar">
+        <?php
+
+        $conn = mysqli_connect("localhost", "root", "", "testdb");
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $conn->query("SET CHARACTER SET utf8");
+
+        $sql = "SELECT idUsuario
+                      ,Nombre
+                      ,PrimerApellido
+                      ,SegundoApellido
+                      ,Cedula
+                      ,Correo
+                      ,Contrasena
+                      ,FdN
+                      FROM usuarios
+                      WHERE Correo = '$Correo';";
+        $result = $conn->query($sql);
+
+        while ($row = $result->fetch_assoc()) {
+            $nombreUsuario = $row['Nombre'];
+        }
+        $conn->close();
+        ?>
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="html/LoginUsuario.php">Iniciar sesión</a>
+                <a class="nav-link disabled" href="#">Bienvenido <?php echo $nombreUsuario ?></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ir</a>
                 <div class="dropdown-menu">
+                    <a id="OptSobNos" class="dropdown-item" href="PanelAUI.php">Panel de Control</a>
                     <a id="OptSobNos" class="dropdown-item" href="#InfoJT">Sobre nosotros</a>
-                    <hr id="A" class="dropdownHR">
                     <a id="OptServ" class="dropdown-item" href="#ServiciosIJT">Servicios</a>
-                    <hr id="B" class="dropdownHR">
                     <a id="OptMejLug" class="dropdown-item" href="#MejoresLugaresJT">Recomendaciones</a>
-                    <hr id="C" class="dropdownHR">
                     <a id="OptComent" class="dropdown-item" href="#CommentariosJT">Comentarios</a>
-                    <hr id="D" class="dropdownHR">
-                    <a id="OptComent" class="dropdown-item" href="html/Horarios2.php">Horarios</a>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Bienvenido</a>
             </li>
         </ul>
     </div>
@@ -221,5 +249,4 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
-
 </html>

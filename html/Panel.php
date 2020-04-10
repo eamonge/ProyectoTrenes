@@ -100,24 +100,24 @@ while ($rowHorarios = mysqli_fetch_array($resultHorarios)) {
         <div id="CMDisplayAjustes" class="jumbotron JTContenido">
             <h1 class="lead">Ajustes de usuario</h1>
             <div id="formularioAjustes">
-                <form class="border p-3 form AjustesGenForm">
+                <form class="border p-3 form AjustesGenForm" action="../includes/update.userUI.inc.php" method="POST">
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" value="<?php echo $nombre ?>">
+                        <input type="text" name="UsuarioTxt" class="form-control" value="<?php echo $nombre ?>">
                         <label>Primer Apellido</label>
-                        <input type="text" class="form-control" value="<?php echo $PrimApellido ?>">
+                        <input type="text" name="PrimApTxt" class="form-control" value="<?php echo $PrimApellido ?>">
                         <label>Segundo Apellido</label>
-                        <input type="text" class="form-control" value="<?php echo $SegndApellido ?>">
+                        <input type="text" name="SegApTxt" class="form-control" value="<?php echo $SegndApellido ?>">
                         <label>Cédula</label>
-                        <input type="text" class="form-control" value="<?php echo $Cedula ?>">
+                        <input type="text" name="CedTxt" class="form-control" value="<?php echo $Cedula ?>">
                         <label>Fecha de Nacimiento</label>
-                        <input type="date" class="form-control" value="<?php echo $FdN ?>">
+                        <input type="date" name="FdNTxt" class="form-control" value="<?php echo $FdN ?>">
                         <label>Correo electrónico</label>
-                        <input type="text" class="form-control" value="<?php echo $Correo ?>">
+                        <input type="text" name="CorreoTxt" class="form-control" value="<?php echo $Correo ?>">
                         <label>Contraseña</label>
-                        <input type="password" class="form-control" value="<?php echo $Contrasena ?>">
+                        <input type="password" name="ContrsnTxt" class="form-control" placeholder="•••">
                         <label>Confirmar contraseña</label>
-                        <input type="password" class="form-control">
+                        <input type="password" name="ConfCntrsnTxt" class="form-control">
                     </div>
                     <button class="btn mt small diagonal">Cancelar</button>
                     <button class="btn mt small diagonal">Guardar cambios</button>
@@ -150,8 +150,8 @@ while ($rowHorarios = mysqli_fetch_array($resultHorarios)) {
                             <option>5</option>
                         </select>
                     </div>
-                    <button class="btn mt small diagonal">Cancelar</button>
-                    <button class="btn mt small diagonal">Reservar</button>
+                    <button type="button" class="btn mt small diagonal">Cancelar</button>
+                    <a href="checkout.php"><button type="button" class="btn mt small diagonal">Reservar</button></a>
                 </form>
             </div>
         </div>

@@ -19,15 +19,13 @@ header{
     left: 25%;
 }
 
-table {
+/* table {
    width: 100%;
-   /* border: 1px solid #000; */
-}
-th, td {
+} */
+/* th, td {
    width: 25%;
    text-align: center;
    vertical-align: top;
-   /* border: 1px solid red; */
    border-collapse: collapse;
    padding: 0.3em;
    caption-side: bottom;
@@ -38,11 +36,22 @@ th {
     background: #0A0E29;
     color: white;
 }
+*/
 
+tr
+{
+    border-top: solid 2px #CED4DA;
+}
+
+tr:nth-child(odd)
+{
+    background-color: #2D325A;
+    color: white;
+} 
 
 tr:nth-child(even)
 {
-    background-color: #E5DDD5;
+    background-color: #304B78;
 }
 
 /* .odd th, .odd td {

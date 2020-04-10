@@ -1,0 +1,120 @@
+body
+{
+    /* background-color: skyblue; */
+}
+
+#Navbar
+{
+    background-color: #304B78;
+    height: 4rem;
+    border: none;
+}
+
+#Navbar a
+{
+    color: #DBB13B;
+}
+
+ul
+{
+    height: 4rem;
+    /* border-bottom: 2px red solid; */
+    border-bottom: none;
+}
+
+li
+{
+    display: table-cell;
+    padding: 10px;
+    vertical-align: middle;
+    border: none;
+}
+
+.nav-item
+{
+    border: none;
+    color: #DBB13B;
+    transition: all 300ms;
+}
+
+.nav-item:hover
+{
+    border: none;
+    color: rgb(250, 201, 68);
+}
+
+.nav-link
+{
+    border: none;
+}
+
+.nav-link:hover
+{
+    border: none;
+}
+
+.ajustes
+{
+    border-radius: 0;
+    text-align: center;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0);
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 40%;
+}
+
+input[type="search"]
+{
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    color: purple;
+}
+
+input[type="searc"]::placeholder
+{
+    color: purple;
+}
+
+.searchbar
+{
+    float: left;
+    color: #56BDA2;
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 1px #56BDA2;
+}
+
+.searchbarbtn
+{
+    border: solid 1px #56BDA2;
+    color: #56BDA2;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: -1;
+}
+
+#TabBar
+{
+    margin: 0;
+    width: 100%;
+    border: none;
+}
+
+#TabBar li
+{
+    text-align: center;
+    width: 25%;
+}
+
+#TabBar a
+{
+    color: #304B78;
+    transition: color 200ms;
+}
+
+#TabBar a:hover
+{
+    text-decoration: none;
+    color: #DBB13B;
+}
