@@ -34,7 +34,7 @@ if ($CntrsnaUsuario == $ConfirmarCntrsna)
     // header('Refresh:0;url=/ProyectoTrenes/html/RegistroUsuario.php');
 } else
 {
-    echo '"<script> alert("Las contraseñas deben de coincidir") </script>"';
+    echo '"<script>alert("Las contraseñas deben de coincidir")</script>"';
     header('Refresh:1;url=/ProyectoTrenes/html/RegistroUsuario.php');
 }
 

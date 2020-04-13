@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Horarios</title>
 	<link rel="stylesheet" href="../css/estiloHorarios.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
@@ -21,26 +22,32 @@
 		</nav>
 	</header>
 	<section class="tablasubSecc">
-		<table>
-			<tr>
-				<th>Número de tren</th>
-				<th>Salida</th>
-				<th>Nombre de la estación</th>
-			</tr>
-			<?php
-			$conn = mysqli_connect("localhost", "root", "", "testdb");
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			}
+		<form action="../includes/TS.insertTable.inc.php" method="POST">
+			<table name="TBL" class="table">
+				<!-- <tr>
+					<th>Número de tren</th>
+					<th>Salida</th>
+					<th>Nombre de la estación</th>
+					<th>Estado</th>
+				</tr> -->
+				<?php
+				$conn = mysqli_connect("localhost", "root", "", "testdb");
+				// Check connection
+				if ($conn->connect_error) {
+					die("Connection failed: " . $conn->connect_error);
+				}
 
-			//Establece el charset del display de la info de BD como UTF (soporta tildes)
-			$conn->query("SET CHARACTER SET utf8");
-			//Consulta BD
-			$sql = "SELECT
+				//Establece el charset del display de la info de BD como UTF (soporta tildes)
+				$conn->query("SET CHARACTER SET utf8");
+				//Consulta BD
+				$sql = "SELECT
 						T.TrainNo AS 'Número de tren'
 						,HE.HoraSalida AS 'Salida'
 						,ES.NombreEstacion AS 'Nombre Estación'
+						,CASE
+							WHEN T.Estado = 0 THEN 'A Tiempo'
+							ELSE 'Atrasado'
+						END AS 'Estado'
 						FROM trenes AS T
                   INNER JOIN horarios AS HO
                   ON T.Id = HO.idTren
@@ -51,21 +58,23 @@
                   INNER JOIN horariosdias AS HD
 				  ON HD.idHorario = HO.Id;";
 
-			//Ejecutar el resultado o la consulta
-			$result = $conn->query($sql);
-			if ($result->num_rows > 0) {
-				// output data of each row
-				while ($row = $result->fetch_assoc()) {
-					echo "<tr><td>" . $row["Número de tren"] . "</td><td>" . $row["Salida"] . "</td><td>"
-						. $row["Nombre Estación"] . "</td></tr>";
+				//Ejecutar el resultado o la consulta
+				$result = $conn->query($sql);
+				if ($result->num_rows > 0) {
+					// output data of each row
+					while ($row = $result->fetch_assoc()) {
+						echo "<tr><td>" . $row["Número de tren"] . "</td><td>" . $row["Salida"] . "</td><td>"
+							. $row["Nombre Estación"] . "</td><td>" . $row["Estado"] . "</td></tr>";
+					}
+					echo "</table>";
+				} else {
+					echo "0 results";
 				}
-				echo "</table>";
-			} else {
-				echo "0 results";
-			}
-			$conn->close();
-			?>
-		</table>
+				$conn->close();
+				?>
+			</table>
+			<button type="submit">Test</button>
+		</form>
 	</section>
 	<script src="https://kit.fontawesome.com/03593bd05b.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

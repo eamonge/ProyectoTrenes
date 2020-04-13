@@ -28,58 +28,34 @@
             <br>
             <div id="formulario">
                 <h1 class="bd-title">Registro de nuevo cliente</h1>
-                <form id="FormularioUsuario" class="border p-3 form">
+                <form action="../includes/new.user.inc.php" method="POST"  id="FormularioUsuario" class="border p-3 form">
                     <div class="form-group">
                         <label for="inputnombre">Nombre Completo</label>
-                        <input type="text" class="form-control" id="inputnombre" placeholder="Ingrese su nombre">
+                        <input type="text" name="txtNombre" class="form-control" id="inputnombre" placeholder="Ingrese su nombre">
 
                         <label for="inputprimerapellido">Primer apellido</label>
-                        <input type="text" class="form-control" id="inputprimerapellido" placeholder="Ingrese su primer apellido">
+                        <input type="text" name="txtApellido1" class="form-control" id="inputprimerapellido" placeholder="Ingrese su primer apellido">
 
                         <label for="inputsegundoapellido">Segundo apellido</label>
-                        <input type="text" class="form-control" id="inputsegundoapellido" placeholder="Ingrese su segundo apellido">
+                        <input type="text" name="txtApellido2" class="form-control" id="inputsegundoapellido" placeholder="Ingrese su segundo apellido">
+
+                        <label for="inputcedula">Cédula</label>
+                        <input type="text" name="txtCed" class="form-control" id="inputpassword" placeholder="Ingrese su cédula">
+
+                        <label for="inputemail">Correo electrónico</label>
+                        <input type="email" name="txtCorreo" class="form-control" id="inputemail" placeholder="Ingrese su correo">
 
                         <label for="inputFDN">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" id="inputFDN" placeholder="Ingrese su fecha de nacimiento">
+                        <input type="date" name="txtFDN" class="form-control" id="inputFDN" placeholder="Ingrese su fecha de nacimiento">
 
-                        <label for="inputemail">Correo electr&oacutenico</label>
-                        <input type="email" class="form-control" id="inputemail" placeholder="Ingrese su ID">
-
-                        <label for="">Contrase&ntildea</label>
-                        <input type="password" class="form-control" id="inputpassword" placeholder="Ingrese su Contraseña">
+                        <label for="">Contraseña</label>
+                        <input type="password" name="txtPWD" class="form-control" id="inputpassword" placeholder="Ingrese su Contraseña">
 
                         <label for="">Confirmar contraseña</label>
-                        <input type="password" class="form-control" id="inputpassword" placeholder="Ingrese su Contraseña">
+                        <input type="password" name="txtPWDConf" class="form-control" id="inputpassword" placeholder="Ingrese su Contraseña">
                     </div>
-                    <!-- <div class="form-group">
-                <label for="inputprimerapellido">Primer apellido</label>
-                <input type="text" class="form-control" id="inputprimerapellido" placeholder="Ingrese su primer apellido">
-            </div> -->
-                    <!-- <div class="form-group">
-                <label for="inputsegundoapellido">Segundo apellido</label>
-                <input type="text" class="form-control" id="inputsegundoapellido" placeholder="Ingrese su segundo apellido">
-            </div>
-            <div class="form-group">
-                <label for="inputFDN">Fecha de nacimiento</label>
-                <input type="date" class="form-control" id="inputFDN" placeholder="Ingrese su fecha de nacimiento">
-            </div>
-            <div class="form-group">
-                <label for="inputemail">Correo electr&oacutenico</label>
-                <input type="email" class="form-control" id="inputemail" placeholder="Ingrese su ID">
-            </div>
-            <div class="form-group">
-                <label for="">Contrase&ntildea</label>
-                <input type="password" class="form-control" id="inputpassword" placeholder="Ingrese su Contraseña">
-            </div>
-            <div class="form-group">
-                <label for="">Confirmar contraseña</label>
-                <input type="password" class="form-control" id="inputpassword" placeholder="Ingrese su Contraseña">
-            </div> -->
-                    <!-- <button type="button" class="btn">Cancelar</button>
-                    <button type="button" class="btn">Registrarse</button> -->
-                    <!-- <button type="button" class="btn-5">Button 5</button> -->
-                    <button class="btn mt small diagonal">Cancelar</button>
-                    <button class="btn mt small diagonal">Agregar</button>
+                    <button  class="btn mt small diagonal">Cancelar</button>
+                    <button type="submit" class="btn mt small diagonal">Agregar</button>
                 </form>
             </div>
         </section>

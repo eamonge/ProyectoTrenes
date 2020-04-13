@@ -5,567 +5,248 @@ $Correo = $_SESSION['Correo'];
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Avance 01</title>
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="css/flag.min.css" />
+    <title>Sístema Intl. de Trenes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body id="TestA">
-    <div id="DivBannerMain">
-        <nav>
-            <ul>
-                <?php
+<body>
+    <div id="Navbar">
+        <?php
 
-                $conn = mysqli_connect("localhost", "root", "", "testdb");
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
+        $conn = mysqli_connect("localhost", "root", "", "testdb");
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-                $conn->query("SET CHARACTER SET utf8");
+        $conn->query("SET CHARACTER SET utf8");
 
-                $sql = "SELECT idUsuario
-                ,Nombre
-                ,PrimerApellido
-                ,SegundoApellido
-                ,Cedula
-                ,Correo
-                ,Contrasena
-                ,FdN
-                FROM usuarios
-                WHERE Correo = '$Correo';";
-                $result = $conn->query($sql);
+        $sql = "SELECT idUsuario
+                      ,Nombre
+                      ,PrimerApellido
+                      ,SegundoApellido
+                      ,Cedula
+                      ,Correo
+                      ,Contrasena
+                      ,FdN
+                      FROM usuarios
+                      WHERE Correo = '$Correo';";
+        $result = $conn->query($sql);
 
-                while ($row = $result->fetch_assoc()) {
-                    $nombreUsuario = $row['Nombre'];
-                }
-                $conn->close();
-                ?>
-                <a class="navItem HomeIcn"><i class="fas fa-home"></i></a>
-                <a href="../includes/logout.user.inc.php" class="navItem">
-                    <li class="navList">Cerrar sesión</li>
-                </a>
-                <li id="WelcomeText" class="navList">Bienvenido <?php echo $nombreUsuario ?></li>
-                <a href="Panel.php" class="navItem">
-                    <li class="navList">Usuario CP</li >
-                </a>
-            </ul>
-        </nav>
-        <h1>
-            Go unrestricted<br />
-            Travel free<br />
-            Enjoy for less.
-        </h1>
-        <br />
-        <a href="#InfoDiv">
-            <button>
-                Ver más
-                <i class="fas fa-caret-right"></i>
-            </button>
+        while ($row = $result->fetch_assoc()) {
+            $nombreUsuario = $row['Nombre'];
+        }
+        $conn->close();
+        ?>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Bienvenido <?php echo $nombreUsuario ?></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ir</a>
+                <div class="dropdown-menu">
+                    <a id="OptSobNos" class="dropdown-item" href="Panel.php">Panel de Control</a>
+                    <a id="OptSobNos" class="dropdown-item" href="#InfoJT">Sobre nosotros</a>
+                    <a id="OptServ" class="dropdown-item" href="#ServiciosIJT">Servicios</a>
+                    <a id="OptMejLug" class="dropdown-item" href="#MejoresLugaresJT">Recomendaciones</a>
+                    <a id="OptComent" class="dropdown-item" href="#CommentariosJT">Comentarios</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="BannerDiv" class="jumbotron">
+        <div id="LogoJT" class="jumbotron">
+            <h1 class="display-4">Go unrestricted<br />
+                Travel free<br />
+                Enjoy for less.</h1>
+        </div>
+        <a id="VerMsLink" href="#InfoJT">
+            <div id="VerMsBtn" class="jumbotron">
+                <h1 class="display-4">
+                    Ver más<i class="fas fa-caret-right"></i>
+                </h1>
+            </div>
         </a>
     </div>
-    <br />
-    <div id="DivAbtUs">
-        <!--<p>+</p>-->
-        <section id="InfoSectn">
-            <i id="CloseBtn" class="fas fa-times"></i>
-            <h1>¿Quienes somos?</h1>
-            <hr />
-            <h3>Nosotros somos un servicio de tren a través de los 5 continentes dentro de los países afiliados</h3>
-            <h3>Ofrecemos calidad de servicio a nivel internacional</h3>
-            <h3>Nuestros trenes ofrecen carros de hospedaje y alimentación</h3>
-            <h3>Est. 1890</h3>
-        </section>
+    <div id="InfoJT" class="jumbotron">
+        <h1 class="display-4 H1Title">¿Quiénes somos?</h1>
+        <h1 class="lead H1Content">Somos una organización dedicada a transportar a las personas de capital en capital.
+            <br>
+            Fuimos establecidos en 1820 ante una creciente demanda de trenes a nivel internacional.
+            <br>
+            Nuestro servicio es inigualable a cualquier otro, con precios increíbles para poder atravesar<br>
+            el mundo en la comodidad de un tren.
+            <br>
+        </h1>
+        <h1 class="lead H1SubInfo">
+            Contacto: +1 (415) 555-2671
+        </h1>
+        <h1 class="lead H1SubInfo">
+            Correo corporativo: somostrenes@intltrain.com
+        </h1>
     </div>
-    <div class="container">
-        <div id="InfoDiv" class="InfoContentDiv">
-            <h1>Países afiliados</h1>
-            <hr class="headerHR" />
-            <h2>Tenemos países y rutas afiliadas a nuestro servicio en todo el mundo y todos los continentes, entre ellas:</h2>
-            <h2>
-                -América<br />
-                <br />
-                -África<br />
-                <br />
-                -Asia<br />
-                <br />
-                -Europa<br />
-                <br />
-                -Oceanía<br />
-            </h2>
-            <hr />
-            <br />
-            <h1>Promesa laboral</h1>
-            <hr class="headerHR" />
-            <h2>Nos comprometemos a la satisfacción del cliente en la totalidad de su viaje, acomodando cualquier necesidad que sea necesaria.</h2>
+    <div id="ServiciosIJT" class="jumbotron">
+        <h1 class="display-4">¿Qué ofrecemos?</h1>
+        <div id="Cardcontainer">
+            <div class="card">
+                <!-- <img class="card-img-top" src="img/pngfuel.com.png" alt="Card image cap" height="268" width="180"> -->
+                <i class="fas fa-restroom fa-5x"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Baños públicos</h5>
+                    <p class="card-text">Ofrecemos servicios higiénicos (como baños de duchas e inodoros) para los pasajeros.</p>
+                </div>
+            </div>
+            <div class="card">
+                <!-- <img class="card-img-top" src="img/pngfuel.com.png" alt="Card image cap" height="268" width="180"> -->
+                <i class="fas fa-bed fa-5x"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Servicio de descanso</h5>
+                    <p class="card-text">Ofrecemos caruajes con 2 double camas para un total de 4 pasajeros por habitación.</p>
+                </div>
+            </div>
+            <div class="card">
+                <!-- <img class="card-img-top" src="img/pngfuel.com.png" alt="Card image cap" height="268" width="180"> -->
+                <i class="fas fa-utensils fa-5x"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Servicio de alimentación</h5>
+                    <p class="card-text">Servicio de alimentación para los 3 platos principales, con ofertas de postre al final, e inclusive merienda 24/7.</p>
+                </div>
+            </div>
+            <div class="card">
+                <!-- <img class="card-img-top" src="img/pngfuel.com.png" alt="Card image cap" height="268" width="180"> -->
+                <i class="fas fa-wifi fa-5x"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Internet abordo</h5>
+                    <p class="card-text">Además del servicio de entretenimiento en el caruaje especial, se ofrece internet rápido e eficaz para entretenimiento personal o para trabajos.</p>
+                </div>
+            </div>
         </div>
-        <div id="SecDiv" class="InfoContentDiv">
-            <h1>¿Adónde vámos?</h1>
-            <hr class="headerHR" />
-            <h2>Por nuestro enorme servicio y su gran cobertura, los clientes pueden encontrar los servicios en cualquier continente en los países declarados <a href="#">aquí</a>.</h2>
+    </div>
+    <div id="MejoresLugaresJT" class="jumbotron">
+        <h1 class="display-4">¡Los mejores sitios para visitar según los clientes!</h1>
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+                <li data-target="#carousel" data-slide-to="3"></li>
+                <li data-target="#carousel" data-slide-to="4"></li>
+                <li data-target="#carousel" data-slide-to="5"></li>
+                <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block" src="img/antigua guatemala2.jpg" alt="First slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Antigua</h5>
+                        <p>Guatemala</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block" src="img/panama_city2.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Ciudad Panamá</h5>
+                        <p>Panamá</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block" src="img/san-salvador.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>San Salvador</h5>
+                        <p>El Salvador</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block" src="img/washingdc.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Washington DC</h5>
+                        <p>Estados Unidos</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block" src="img/madrid.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Madrid</h5>
+                        <p>España</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block" src="img/cairo.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Cairo</h5>
+                        <p>Egipto</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <br />
-        <br />
-        <div id="TercDiv" class="InfoContentDiv">
-            <h1>Instituciones Asociadas</h1>
-            <hr class="headerHR" />
-            <h2>
-                -Europa
-                <hr class="AssocHR" />
-                <img src="../img/ectaa_icon.jpg" />
-                <img src="../img/tucan_icon.png" />
-                <img src="../img/euroventure_icon.jpg" />
-            </h2>
-            <hr class="headerHR" />
-            <h2>
-                -América
-                <hr class="AssocHR" />
-                <img src="../img/gwa_icon.jpg" />
-                <img src="../img/dtcrc_icon.jpg" />
-                <img src="../img/wldexp_icon.png" />
-
-            </h2>
-            <hr class="headerHR" />
-            <h2>
-                -Asia
-                <hr class="AssocHR" />
-                <img src="../img/gwa_icon.jpg" />
-                <img src="../img/dtcrc_icon.jpg" />
-                <img src="../img/wldexp_icon.png" />
-
-            </h2>
-            <hr class="headerHR" />
-            <h2>
-                -África
-                <hr class="AssocHR" />
-                <img src="../img/gwa_icon.jpg" />
-                <img src="../img/dtcrc_icon.jpg" />
-                <img src="../img/wldexp_icon.png" />
-
-            </h2>
-            <hr class="headerHR" />
-            <h2>
-                -Oceanía
-                <hr class="AssocHR" />
-                <img src="../img/gwa_icon.jpg" />
-                <img src="../img/dtcrc_icon.jpg" />
-                <img src="../img/wldexp_icon.png" />
-
-            </h2>
-            <br />
+    </div>
+    <div id="CommentariosJT" class="jumbotron">
+        <h1 class="display-4">¿No confías en nuestra calidad?
+            <br>
+            ¡Solo lee los buenos comentarios que otros clientes han dicho sobre nosotros!
+        </h1>
+        <div id="Cardcontainer">
+            <div class="card" style="width: 18rem;">
+                <!-- <img class="card-img-top" src="img/pngfuel.com.png" alt="Card image cap" height="268" width="180"> -->
+                <i class="fas fa-male fa-5x"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Bernardo Juarez, 32</h5>
+                    <p class="card-text">"Excelente servicio e internet constante. ¡Ventajas de tener un servicio de tren a nivel internasional!"</p>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <!-- <img class="card-img-top" src="img/pngfuel.com.png" alt="Card image cap" height="268" width="180"> -->
+                <i class="fas fa-female fa-5x"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Eudalina López, 49</h5>
+                    <p class="card-text">"Me gustó mucho las ofertas turísticas ofrecidas por los países en los cuales viajamos."</p>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <!-- <img class="card-img-top" src="img/pngfuel.com.png" alt="Card image cap" height="268" width="180"> -->
+                <i class="fas fa-female fa-5x"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Karen McHalligan, 73</h5>
+                    <p class="card-text">"Absolutely thrilled!"</p>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <!-- <img class="card-img-top" src="img/pngfuel.com.png" alt="Card image cap" height="268" width="180"> -->
+                <i class="fas fa-male fa-5x"></i>
+                <div class="card-body">
+                    <h5 class="card-title">Ahmed Shamoo, 26</h5>
+                    <p class="card-text">"احببته. فريق عمل ممتاز وخدمة رائعة. سيوصي للأصدقاء في الوطن!"</p>
+                    <p class="card-text"><i>Traducción a Inglés: </i>"I loved it. Excelent staff and great service. Would recommend to friends back home!"</p>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                </div>
+            </div>
         </div>
 
     </div>
 
-    <!--<div id="footer" class="BA">
-        <h1></h1>
 
-    </div>-->
-    <!--<div id="bannerDiv">
-        <img id="ImgBanner" src="../img/train_banner_image.jpg" width="100%" />
-        <img id="ImgBanner" src="https://wallpapercave.com/wp/FPfe3Eu.jpg" width="99.99%"/>
-    </div>
-
-        comment ended here
-
-    <div id="DivPaises">
-        <br />
-        <h1>Asia</h1>
-        <i class="ae flag"></i>
-        <h2 class="CountryHeader">Arabia Saudíta</h2>
-        <br />
-        <h1>Europa</h1>
-        <i class="france flag"></i>
-        <h2 class="CountryHeader">Francia</h2>
-        <br />
-        <h1>América</h1>
-        <i class="costa rica flag"></i>
-        <h2 class="CountryHeader">Costa Rica</h2>
-        <br />
-        <h1>África</h1>
-        <i class="egypt flag"></i>
-        <h2 class="CountryHeader">Egypt</h2>
-        <h1>Oceanía</h1>
-        <i class="new zealand flag"></i>
-        <h2 class="CountryHeader">Nueva Zelanda</h2>
-    </div>-->
-    <!--<div id="DivRutas">
-        <h1>Ruta América</h1>
-        <hr />
-        <section id="RtAmrca">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Panama City, Panamá</th>
-                        <th>San José, Costa Rica</th>
-                        <th>Managua, Nicaragüa</th>
-                        <th>Tegucigalpa, Honduras</th>
-                        <th>San Salvador, El Salvador</th>
-                        <th>Ciudad de Mexico, México</th>
-                        <th>Austin, Texas, Estados Unidos</th>
-                        <th>Santa Fe, Nuevo México, Estado Unidos</th>
-                        <th>Fénix, Arizona, Estados Unidos</th>
-                        <th>Sacramento, California, Estados Unidos</th>
-                        <th>Salem, Oregon, Estados Unidos</th>
-                        <th>Olympia, Washington, Estados Unidos</th>
-                        <th>Boise, Idaho, Estados Unidos</th>
-                        <th>Carson City, Nevada, Estados Unidos</th>
-                        <th>Salt Lake City, Utah, Estados Unidos</th>
-                        <th>Denver, Colorado</th>
-                        <th>Cheyenne, Wyoming</th>
-                        <th>Helena, Montana, Estados Unidos</th>
-                        <th>Bismarck, North Dakota</th>
-                        <th>Pierre, South Dakota</th>
-                        <th>Lincoln, Nebraska</th>
-                        <th>Topeka, Kasas</th>
-                        <th>Oklahoma City, Oklahoma</th>
-                        <th>Baton  Rouge, Louisiana</th>
-                        <th>Jackson, Mississippi</th>
-                        <th>Little Rock, Arkansas</th>
-                        <th>Jefferson City, Missouri</th>
-                        <th>Des Moines, Iowa</th>
-                        <th>St. Paul, Minnesota</th>
-                        <th>Madison, Wisconsin</th>
-                        <th>Springfield, Illinois</th>
-                        <th>Lansing, Michigan</th>
-                        <th>Indianapolis, Indiana</th>
-                        <th>Columbus, Ohio</th>
-                        <th>Frankfort, Kentucky</th>
-                        <th>Nashville, Tennessee</th>
-                        <th>Montgomery, Alabama</th>
-                        <th>Tallahassee, Florida</th>
-                        <th>Atlanta, Georgia</th>
-                        <th>Columbia, South Carolina</th>
-                        <th>Raleigh, North Carolina</th>
-                        <th>Charleston, West Virginia</th>
-                        <th>Richmond, Virginia</th>
-                        <th>Annapolis, Maryland</th>
-                        <th>Harrisburg, Pennsylvania</th>
-                        <th>Dover, Delaware</th>
-                        <th>Trenton, New Jersey</th>
-                        <th>Hartford, Connecticut</th>
-                        <th>Albany, New York</th>
-                        <th>Providence, Rhode Island</th>
-                        <th>Boston, Massachusetts</th>
-                        <th>Concord, New Hampshire</th>
-                        <th>Montpelier, Vermont</th>
-                        <th>Augusta, Maine</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>6:00</td>
-                        <td>12:05</td>
-                        <td>17:55</td>
-                        <td>E</td>
-                        <td>F</td>
-                        <td>H</td>
-                        <td>I</td>
-                        <td>J</td>
-                        <td>K</td>
-                        <td>L</td>
-                        <td>M</td>
-                        <td>N</td>
-                        <td>O</td>
-                        <td>P</td>
-                        <td>Q</td>
-                        <td>R</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                    </tr>
-                    <tr>
-                        <td>7:30</td>
-                        <td>13:35</td>
-                        <td>C</td>
-                        <td>D</td>
-                        <td>E</td>
-                        <td>F</td>
-                        <td>H</td>
-                        <td>I</td>
-                        <td>K</td>
-                        <td>L</td>
-                        <td>M</td>
-                        <td>N</td>
-                        <td>O</td>
-                        <td>P</td>
-                        <td>Q</td>
-                        <td>R</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                    </tr>
-                    <tr>
-                        <td>9:00</td>
-                        <td>B</td>
-                        <td>C</td>
-                        <td>D</td>
-                        <td>E</td>
-                        <td>F</td>
-                        <td>H</td>
-                        <td>I</td>
-                        <td>K</td>
-                        <td>L</td>
-                        <td>M</td>
-                        <td>N</td>
-                        <td>O</td>
-                        <td>P</td>
-                        <td>Q</td>
-                        <td>R</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                    </tr>
-                    <tr>
-                        <td>10:30</td>
-                        <td>B</td>
-                        <td>C</td>
-                        <td>D</td>
-                        <td>E</td>
-                        <td>F</td>
-                        <td>H</td>
-                        <td>I</td>
-                        <td>K</td>
-                        <td>L</td>
-                        <td>M</td>
-                        <td>N</td>
-                        <td>O</td>
-                        <td>P</td>
-                        <td>Q</td>
-                        <td>R</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                    </tr>
-                    <tr>
-                        <td>12:00</td>
-                        <td>kkn</td>
-                        <td>C</td>
-                        <td>D</td>
-                        <td>E</td>
-                        <td>F</td>
-                        <td>H</td>
-                        <td>I</td>
-                        <td>K</td>
-                        <td>L</td>
-                        <td>M</td>
-                        <td>N</td>
-                        <td>O</td>
-                        <td>P</td>
-                        <td>Q</td>
-                        <td>R</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                        <td>I</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <br />
-        <h1>Ruta Asia</h1>
-        <hr />
-        <table></table>
-        <br />
-        <h1>Ruta África</h1>
-        <hr />
-        <table></table>
-        <br />
-        <h1>Ruta Oceanía</h1>
-        <hr />
-        <table></table>
-        <br />
-        <h1>Ruta Europa</h1>
-        <hr />
-        <table></table>
-        <br />
-    </div>
-    <br />-->
-    <script src="js/index.js"></script>
     <script src="https://kit.fontawesome.com/03593bd05b.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
-
 </html>

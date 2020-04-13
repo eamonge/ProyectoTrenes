@@ -1,0 +1,63 @@
+/* body
+{
+} */
+
+#NavBar
+{
+    text-align: center;
+    border-radius: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* height: 50%; */
+    /* position: absolute;
+    background-color: #2494A2;
+    height: 100%;
+    margin: 0;
+    color: #DBB13B;
+    width: 10%; */
+}
+
+#NavBar .lead
+{
+    margin: 0;
+    font-size: 22pt;
+}
+
+.jumbotron
+{
+    height: 50vh;
+    margin: 0;
+    /* float: left; */
+}
+
+#ContentDiv
+{
+    /* position: absolute; */
+    /* left: 0; */
+    /* float: left; */
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0;
+}
+
+#NavBar h1
+{
+    /* font-weight: bold;
+    font-size: 11pt; */
+    padding: 5px;
+}
+
+#ContentDiv .btn-dark
+{
+    background-color: #56BDA2;
+    width: 50%;
+    height: 30%;
+    margin: 5px;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-color: #56BDA2;
+}
+
+#ContentDiv .btn-dark:hover
+{
+    background-color: #469e87;
+    border-color: #469e87;
+}
