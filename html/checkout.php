@@ -6,6 +6,15 @@
     <link rel="stylesheet" type="text/css" href="../css/diseño.css">
     <link rel="stylesheet" type="text/css" href="../css/menu.css">
     <title>Checkout</title>
+    <script>
+      function actualizar(precioTiquete){
+        var tiquete = document.getElementById("tiquete").value;
+        document.getElementById('total').innerHTML = "$"+(precioTiquete * tiquete);
+      }
+      function boton(){
+        alert("Recivido");
+      }
+  </script>
 </head>
 <body>
 
@@ -37,25 +46,33 @@
             <input type="text" class="input" placeholder="Titular">
             <i class="fas fa-user"></i>
           </div>
-          <div class="btn">
+          
+          <div class="btn" onclick="boton();">
             Pagar
           </div> 
         </div>
 </div>
 <div class="preview">
+  <!--Aqui se carga la informacion previa a la compra-->
   <h2>Informacion de compra</h2>
   <label class="label2">Usuario:</label>
-  <input type="text" class="input" value="Eduardo">
+  <input type="text" class="input" value="Eduardo" disabled>
   <label class="label2">Estacion</label>
-  <input type="text" class="input" value="San Jose">
+  <input type="text" class="input" value="San Jose" disabled>
   <label class="label2">Tren</label>
-  <input type="text" class="input" value="Thomas el ChuChu">
+  <input type="text" class="input" value="Thomas el ChuChu" disabled>
   <label class="label2">Hora de Salida</label>
-  <input type="text" class="input" value="09:00">
+  <input type="text" class="input" value="09:00" disabled>
   <label class="label2">Hora de Llegada</label>
-  <input type="text" class="input" value="10:00">
+  <input type="text" class="input" value="10:00" disabled>
   <label class="label2">Destinos</label>
-  <input type="text" class="input" value="Cartago">
+  <input type="text" class="input" value="Cartago" disabled>
+  <label class="label2">Tiquetes</label>
+  <input type="number" class="input" value="0" id="tiquete" onchange="actualizar(15);//precio del tiquete">
+  <center>
+  <label class="label2">Total: </label>
+  <label class="label2" id="total">$ 0 </label>
+  </center>
 
   
 
