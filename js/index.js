@@ -4,8 +4,10 @@ var SectAjustes = document.getElementById('CMDisplayAjustes');
 var ReservasBtn = document.getElementById('OptReserv');
 var SectReservas = document.getElementById('CMDisplayReserv');
 
+var clicktest = document.getElementById('exampleFormControlSelect1');
 
-AjustesBtn.addEventListener('click', function(){
+
+AjustesBtn.addEventListener('click', function () {
     SectAjustes.style.opacity = "1";
     SectAjustes.style.zIndex = "1";
     SectAjustes.style.transition = "all 300ms";
@@ -15,14 +17,14 @@ AjustesBtn.addEventListener('click', function(){
 
 });
 
-ReservasBtn.addEventListener('click', function(){
+ReservasBtn.addEventListener('click', function () {
     SectAjustes.style.zIndex = "0";
     SectAjustes.style.opacity = "0";
 
     SectReservas.style.opacity = "1";
     SectReservas.style.zIndex = "1";
 
-    
+
 
     SectReservas.style.transition = "all 300ms";
     // SectAjustes.transition = "all 300ms";
@@ -30,76 +32,31 @@ ReservasBtn.addEventListener('click', function(){
 });
 
 
-// $(document).ready(function () {
-//     $('[data-toggle="tooltip"]').tooltip();
+// clicktest.addEventListener('change', function(){
+//     var index = clicktest.selectedIndex;
+//     alert('Selected index is: ' + index);
 // });
 
-// var ContentMenu = document.getElementById('ContentMenu');
+// var selectElem = document.getElementById('select');
+//var pElem = document.getElementById('p')
 
-// var AjustesBtn = document.getElementById('AjustesLnk');
-// var AjustesSecc = document.getElementById('AjustesPanel');
-
-// var ReservacionesBtn = document.getElementById('ReservLnk');
-// var ReservSecc = document.getElementById('ReservacionesPanel');
-
-// var HorariosBtn = document.getElementById('HorariosLnk');
-// var HorariosSecc = document.getElementById('HorariosPanel');
-
-// var NotifBtn = document.getElementById('NotifLnk');
-// var NotifSecc = document.getElementById('NotificacionesPanel');
-
-
-
-// AjustesBtn.addEventListener('click', function(){
-//     AjustesSecc.style.transition = "opacity 300ms";
-//     ReservSecc.style.opacity = "0";
-//     HorariosSecc.style.opacity = "0";
-//     AjustesSecc.style.opacity = "1";
-//     NotifSecc.style.opacity = "0";
-
-//     AjustesSecc.style.zIndex = "1";
-//     ContentMenu.scrollTop = 0;
-//     ReservSecc.style.zIndex = "0";
-//     HorariosSecc.style.zIndex = "0";
-//     NotifSecc.style.zIndex = "0";
+//When a new <option> is selected
+// clicktest.addEventListener('change', function () {
+//     var index = clicktest.selectedIndex;
+//Add that data to the <p>
+//     alert('selectedIndex: ' + index);
 // });
+// clicktest.addEventListener('click', function(){
+//     var precio = document.getElementById('PRAIS');
 
-// ReservacionesBtn.addEventListener('click', function(){
-//     ReservSecc.style.transition = "all 300ms"
-//     AjustesSecc.style.opacity = "0";
-//     ReservSecc.style.opacity = "1"; 
-//     HorariosSecc.style.opacity = "0";
-//     NotifSecc.style.opacity = "0";
-//     ContentMenu.scrollTop = 0;
-//     AjustesSecc.style.zIndex = "0";
-//     ReservSecc.style.zIndex = "1";
-//     HorariosSecc.style.zIndex = "0";
-//     NotifSecc.style.zIndex = "0";
-// });
+//     switch (clicktest.selectedIndex) {
+//         case 1:
+//             // precio.innerHTML = 'A';
+//             precio.innerText = 'AB';
+//             break;
+//         case 2:
+//             precio.innerHTML = 'H';
+//             break;
 
-// HorariosBtn.addEventListener('click', function(){
-//     HorariosSecc.style.transition = "opacity 300ms";
-//     AjustesSecc.style.opacity = "0";
-//     ReservSecc.style.opacity = "0";
-//     HorariosSecc.style.opacity = "1";
-//     ContentMenu.scrollTop = 0;
-//     NotifSecc.style.opacity = "0";
-
-//     AjustesSecc.style.zIndex = "0";
-//     ReservSecc.style.zIndex = "0";
-//     HorariosSecc.style.zIndex = "1";
-//     NotifSecc.style.zIndex = "0";
-// });
-
-// NotifBtn.addEventListener('click', function () {
-//     NotifSecc.style.transition = "opacity 300ms";
-//     AjustesSecc.style.opacity = "0";
-//     ReservSecc.style.opacity = "0";
-//     HorariosSecc.style.opacity = "0";
-//     NotifSecc.style.opacity = "1";
-//     ContentMenu.scrollTop = 0;
-//     AjustesSecc.style.zIndex = "0";
-//     ReservSecc.style.zIndex = "0";
-//     HorariosSecc.style.zIndex = "0";
-//     NotifSecc.style.zIndex = "1";
+//     }
 // });

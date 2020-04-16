@@ -1,35 +1,7 @@
 <?php
-session_start();
-// $Username = $_SESSION['Usuario'];
-$Correo = $_SESSION['Correo'];
-// $UserID = $_SESSION['id'];
-
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "testdb";
-
-$conn = mysqli_connect($server, $username, $password, $dbname);
-$conn->query("SET CHARACTER SET utf8");
-
-//Query para las estaciones
-$query = "SELECT *
-        FROM estaciones";
-$result = mysqli_query($conn, $query);
-$options = "";
-while ($row = mysqli_fetch_array($result)) {
-    $options = $options . "<option>$row[1], $row[2]</option>";
-}
-
-//Query para los horarios
-$queryHorarios = " SELECT *
-                FROM horarioestaciones";
-$resultHorarios = mysqli_query($conn, $queryHorarios);
-$optionsHorarios = "";
-
-while ($rowHorarios = mysqli_fetch_array($resultHorarios)) {
-    $optionsHorarios = $optionsHorarios . "<option>$rowHorarios[2]</option>";
-}
+include('../includes/load.user.php');
+include('../includes/load.estaciones.php');
+include('../includes/load.horarios.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,42 +17,9 @@ while ($rowHorarios = mysqli_fetch_array($resultHorarios)) {
 
 <body>
     <div id="Navbar">
-        <?php
-
-        $conn = mysqli_connect("localhost", "root", "", "testdb");
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        $conn->query("SET CHARACTER SET utf8");
-
-        $sql = "SELECT idUsuario
-        ,Nombre
-        ,PrimerApellido
-        ,SegundoApellido
-        ,Cedula
-        ,Correo
-        ,Contrasena
-        ,FdN
-        FROM usuarios
-        WHERE Correo = '$Correo';";
-
-        $result = $conn->query($sql);
-
-        while ($row = $result->fetch_assoc()) {
-            $nombre = $row['Nombre'];
-            $PrimApellido = $row['PrimerApellido'];
-            $SegndApellido = $row['SegundoApellido'];
-            $Cedula = $row['Cedula'];
-            $Correo = $row['Correo'];
-            $Contrasena = $row['Contrasena'];
-            $FdN = $row['FdN'];
-        }
-        $conn->close();
-        ?>
         <ul class="nav nav-tabs">
             <li class="nav-item">
-                <a class="nav-link" href="../includes/logout.user.inc.php">Log out</a>
+                <a class="nav-link" href="LoggedUserindex.php"><i class="fas fa-home"></i></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ir</a>
@@ -91,8 +30,12 @@ while ($rowHorarios = mysqli_fetch_array($resultHorarios)) {
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Bienvenido <?php echo $nombre ?></a>
+                <a class="nav-link disabled">Bienvenido <?php echo $nombre ?></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../includes/logout.user.inc.php"><i class="fas fa-sign-in-alt"></i></a>
+            </li>
+            
         </ul>
     </div>
     <div id="ContentMenuJT" class="jumbotron">
@@ -124,24 +67,33 @@ while ($rowHorarios = mysqli_fetch_array($resultHorarios)) {
                 </form>
             </div>
         </div>
-        <div id="CMDisplayReserv" class="jumbotron JTContenido">
+        <div id="CMDisplayReserv" class="jumbotron">
             <h1 class="lead">Reservaciones</h1>
             <div>
+                <table name="TBL" class="table">
+                    <tr>
+                        <th>No. de tren</th>
+                        <th>Hora de salida</th>
+                        <th>Nombre de la estación de salida</th>
+                        <th>Nombre de la estación de llegada</th>
+                        <th>Precio Total</th>
+                    </tr>
+                </table>
                 <form class="border p-3 form AjustesGenForm">
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Desde: </label>
+                        <label for="exampleFormControlSelect1">No. de Tren: </label>
                         <select class="form-control" id="exampleFormControlSelect1">
                             <?php echo $options ?>
                         </select>
-                        <label for="exampleFormControlSelect1">Hasta: </label>
+                        <label for="exampleFormControlSelect1">Hora de salida: </label>
                         <select class="form-control" id="exampleFormControlSelect1">
                             <?php echo $options ?>
                         </select>
-                        <label for="exampleFormControlSelect1">Elige el horario deseado: </label>
+                        <label for="exampleFormControlSelect1">Estación salida: </label>
                         <select class="form-control" id="exampleFormControlSelect1">
                             <?php echo $optionsHorarios ?>
                         </select>
-                        <label for="exampleFormControlSelect1">Elige la Subcompañía: </label>
+                        <label for="exampleFormControlSelect1">Estación Llegada: </label>
                         <select class="form-control" id="exampleFormControlSelect1">
                             <option>1</option>
                             <option>2</option>
@@ -149,6 +101,15 @@ while ($rowHorarios = mysqli_fetch_array($resultHorarios)) {
                             <option>4</option>
                             <option>5</option>
                         </select>
+                        <label for="exampleFormControlSelect1">Precio total: </label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <?php echo $optionsHorarios ?>
+                        </select>
+
+
+
+
+
                     </div>
                     <button type="button" class="btn mt small diagonal">Cancelar</button>
                     <a href="checkout.php"><button type="button" class="btn mt small diagonal">Reservar</button></a>

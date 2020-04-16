@@ -38,7 +38,4 @@ if ($db->query($sql) === TRUE) {
 }
 
 $db->close();
-
-
-
 ?>

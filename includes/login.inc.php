@@ -41,14 +41,12 @@ try
         if ($_SESSION['type'] == 1)
         {
             echo "<script type='text/javascript'>alert('Bienvenido $CorreoInput')</script>";
-            // $_SESSION['txtUsuario'] = $UsernameInput;
             $_SESSION['Correo'] = $CorreoInput;
             header('Refresh:2;url=/ProyectoTrenes/html/LandingAUI.php');
             
         } else 
         {
             echo "<script type='text/javascript'>alert('Bienvenido $CorreoInput')</script>";
-            // $_SESSION['txtUsuario'] = $UsernameInput;
             $_SESSION['Correo'] = $CorreoInput;
             header('Refresh:2;url=/ProyectoTrenes/html/LoggedUserindex.php');
         }

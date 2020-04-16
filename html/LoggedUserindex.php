@@ -20,30 +20,7 @@ $Correo = $_SESSION['Correo'];
 <body>
     <div id="Navbar">
         <?php
-
-        $conn = mysqli_connect("localhost", "root", "", "testdb");
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        $conn->query("SET CHARACTER SET utf8");
-
-        $sql = "SELECT idUsuario
-                      ,Nombre
-                      ,PrimerApellido
-                      ,SegundoApellido
-                      ,Cedula
-                      ,Correo
-                      ,Contrasena
-                      ,FdN
-                      FROM usuarios
-                      WHERE Correo = '$Correo';";
-        $result = $conn->query($sql);
-
-        while ($row = $result->fetch_assoc()) {
-            $nombreUsuario = $row['Nombre'];
-        }
-        $conn->close();
+        include('../includes/load.username.php');
         ?>
         <ul class="nav nav-tabs">
             <li class="nav-item">
@@ -57,6 +34,7 @@ $Correo = $_SESSION['Correo'];
                     <a id="OptServ" class="dropdown-item" href="#ServiciosIJT">Servicios</a>
                     <a id="OptMejLug" class="dropdown-item" href="#MejoresLugaresJT">Recomendaciones</a>
                     <a id="OptComent" class="dropdown-item" href="#CommentariosJT">Comentarios</a>
+                    <a id="OptComent" class="dropdown-item" href="Reservas.php">Reservaciones</a>
                 </div>
             </li>
         </ul>
@@ -144,42 +122,42 @@ $Correo = $_SESSION['Correo'];
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block" src="img/antigua guatemala2.jpg" alt="First slide">
+                    <img class="d-block" src="../img/antigua guatemala2.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Antigua</h5>
                         <p>Guatemala</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="img/panama_city2.jpg" alt="Second slide">
+                    <img class="d-block" src="../img/panama_city2.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Ciudad Panamá</h5>
                         <p>Panamá</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="img/san-salvador.jpg" alt="Second slide">
+                    <img class="d-block" src="../img/san-salvador.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>San Salvador</h5>
                         <p>El Salvador</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="img/washingdc.jpg" alt="Second slide">
+                    <img class="d-block" src="../img/washingdc.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Washington DC</h5>
                         <p>Estados Unidos</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="img/madrid.jpg" alt="Second slide">
+                    <img class="d-block" src="../img/madrid.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Madrid</h5>
                         <p>España</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block" src="img/cairo.jpg" alt="Second slide">
+                    <img class="d-block" src="../img/cairo.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Cairo</h5>
                         <p>Egipto</p>
