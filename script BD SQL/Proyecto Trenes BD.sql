@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 17, 2020 at 04:20 AM
+-- Generation Time: Apr 22, 2020 at 04:01 AM
 -- Server version: 5.7.26
 -- PHP Version: 7.2.18
 
@@ -315,6 +315,36 @@ CREATE TABLE IF NOT EXISTS `reservaciones` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `reservaciones2`
+--
+
+DROP TABLE IF EXISTS `reservaciones2`;
+CREATE TABLE IF NOT EXISTS `reservaciones2` (
+  `idReservacion` int(11) NOT NULL AUTO_INCREMENT,
+  `NombreCliente` varchar(125) COLLATE latin1_general_ci NOT NULL,
+  `EstacionInicio` varchar(350) COLLATE latin1_general_ci NOT NULL,
+  `EstacionFinal` varchar(350) COLLATE latin1_general_ci NOT NULL,
+  `HorarioSalida` time NOT NULL,
+  `PrecioViaje` varchar(12) COLLATE latin1_general_ci NOT NULL,
+  UNIQUE KEY `idReservacion` (`idReservacion`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Dumping data for table `reservaciones2`
+--
+
+INSERT INTO `reservaciones2` (`idReservacion`, `NombreCliente`, `EstacionInicio`, `EstacionFinal`, `HorarioSalida`, `PrecioViaje`) VALUES
+(1, '', '', '', '00:00:00', ''),
+(2, '', '', '', '00:00:00', ''),
+(3, '', '', '', '00:00:00', ''),
+(4, '', '', '', '00:00:00', ''),
+(5, '', '', '', '00:00:00', ''),
+(6, '', '1', '1', '00:00:05', '237.95'),
+(7, '', '1', '1', '00:00:15', '842.91');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tarjetasreserv`
 --
 
@@ -413,7 +443,6 @@ INSERT INTO `usuarios` (`idUsuario`, `Nombre`, `PrimerApellido`, `SegundoApellid
 (1, 'Ernesto', 'Monge', 'Bolívar', '117910852', 'emb1098@hotmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '1998-10-28', 1),
 (2, 'Emilio', 'Solano', 'Flores', '59899292', 'emiliosolanoflores@gmail.com', 'ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad', '2020-03-16', 0),
 (3, 'a', 'a', 'a', 'a', 'aa', 'b3a8e0e1f9ab1bfe3a36f231f676f78bb30a519d2b21e6c530c0eee8ebb4a5d0', '2020-03-01', 0),
-(4, 'b', 'b', 'b', 'b', 'b', '3', '2020-03-01', 0),
 (5, 'c', 'c', 'c', 'c', 'c', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '2020-03-01', 0),
 (6, 'Thomas', 'Perez', 'Sanchez', '45898988', 'tperez@hotmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', '2001-10-02', 0),
 (7, 'Luis Carlos', 'Rojas', 'Azul', '65656589', 'lcarlosroaz@gmail.com', '6d1182c02a8d1a877768bcc37a5dedfb11fdfe0394df93d9ad202ecd79f805cb', '1420-04-12', 0);
