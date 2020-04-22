@@ -26,7 +26,7 @@ include('../includes/load.horarios.php');
                 <div class="dropdown-menu">
                     <a id="OptAjustes" class="dropdown-item" href="#">Ajustes</a>
                     <a id="OptReserv" class="dropdown-item" href="#">Reservaciones</a>
-                    <a id="OptHorarios" class="dropdown-item" href="#">Horarios</a>
+                    <a id="OptDelete" class="dropdown-item" href="#">Eliminar cuenta</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -35,11 +35,12 @@ include('../includes/load.horarios.php');
             <li class="nav-item">
                 <a class="nav-link" href="../includes/logout.user.inc.php"><i class="fas fa-sign-in-alt"></i></a>
             </li>
-            
+
         </ul>
     </div>
     <div id="ContentMenuJT" class="jumbotron">
         <h1 class="display-4">Panel de Control</h1>
+        <!--  -->
         <div id="CMDisplayAjustes" class="jumbotron JTContenido">
             <h1 class="lead">Ajustes de usuario</h1>
             <div id="formularioAjustes">
@@ -67,6 +68,7 @@ include('../includes/load.horarios.php');
                 </form>
             </div>
         </div>
+        <!--  -->
         <div id="CMDisplayReserv" class="jumbotron">
             <h1 class="lead">Reservaciones</h1>
             <div>
@@ -105,19 +107,25 @@ include('../includes/load.horarios.php');
                         <select class="form-control" id="exampleFormControlSelect1">
                             <?php echo $optionsHorarios ?>
                         </select>
-
-
-
-
-
                     </div>
                     <button type="button" class="btn mt small diagonal">Cancelar</button>
                     <a href="checkout.php"><button type="button" class="btn mt small diagonal">Reservar</button></a>
                 </form>
             </div>
         </div>
-        <div id="CMDisplayHorario" class="jumbotron JTContenido">
-            <h1 class="lead">Here goes content Horarios</h1>
+        <!--  -->
+        <div id="CMDDelete" class="jumbotron JTContenido">
+            <h1 class="lead">Eliminación de cuenta</h1>
+            <div>
+                <form action="../includes/delete.user.inc.php" method="POST" class="border p-3 form">
+                <h1 class="display-4">Bienvenido <?php echo $nombre ?></h1>
+                    <h1 class="lead">¿Está seguro que desea eliminar la cuenta?
+                        <br>
+                        ¡Sus datos se borrarán para siempre!</h1>
+                    <a href="Panel.php"><button type="button" class="btn mt small diagonal secondarybtn">Cancelar</button></a>
+                    <button type="submit" class="btn mt small diagonal secondarybtn">Eliminar</button>
+                </form>
+            </div>
         </div>
     </div>
     <script src="../js/index.js"></script>

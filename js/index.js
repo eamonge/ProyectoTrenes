@@ -4,6 +4,10 @@ var SectAjustes = document.getElementById('CMDisplayAjustes');
 var ReservasBtn = document.getElementById('OptReserv');
 var SectReservas = document.getElementById('CMDisplayReserv');
 
+var DeleteBtn = document.getElementById('OptDelete');
+var SectDelete = document.getElementById('CMDDelete');
+
+
 var clicktest = document.getElementById('exampleFormControlSelect1');
 
 
@@ -27,36 +31,17 @@ ReservasBtn.addEventListener('click', function () {
 
 
     SectReservas.style.transition = "all 300ms";
-    // SectAjustes.transition = "all 300ms";
 
 });
 
+DeleteBtn.addEventListener('click', function(){
+    SectAjustes.style.zIndex = "0";
+    SectAjustes.style.opacity = "0";
+    SectReservas.style.opacity = "0";
+    SectReservas.style.zIndex = "0";
 
-// clicktest.addEventListener('change', function(){
-//     var index = clicktest.selectedIndex;
-//     alert('Selected index is: ' + index);
-// });
-
-// var selectElem = document.getElementById('select');
-//var pElem = document.getElementById('p')
-
-//When a new <option> is selected
-// clicktest.addEventListener('change', function () {
-//     var index = clicktest.selectedIndex;
-//Add that data to the <p>
-//     alert('selectedIndex: ' + index);
-// });
-// clicktest.addEventListener('click', function(){
-//     var precio = document.getElementById('PRAIS');
-
-//     switch (clicktest.selectedIndex) {
-//         case 1:
-//             // precio.innerHTML = 'A';
-//             precio.innerText = 'AB';
-//             break;
-//         case 2:
-//             precio.innerHTML = 'H';
-//             break;
-
-//     }
-// });
+    
+    SectDelete.style.opacity = "1";
+    SectDelete.style.zIndex = "1";
+    SectDelete.style.transition = "all 300ms";
+});

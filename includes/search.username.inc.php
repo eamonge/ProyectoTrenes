@@ -1,6 +1,11 @@
 <?php
+session_start();
 
 include('db.connect.inc.php');
+
+$SearchEmail = $_POST['SearchEmail'];
+
+$_SESSION['SearchEmailInput'] = $SearchEmail;
 
 if ($db->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -17,12 +22,12 @@ $sql = "SELECT idUsuario
               ,Contrasena
               ,FdN
         FROM usuarios
-        WHERE Correo = '$Correo';";
+        WHERE Correo = '$SearchEmail';";
 $result = $db->query($sql);
 
 while ($row = $result->fetch_assoc()) {
     $nombreUsuario = $row['Nombre'];
 }
 $db->close();
-
+header('Refresh:0;url=/ProyectoTrenes/html/PanelAUI.php');
 ?>

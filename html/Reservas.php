@@ -29,9 +29,9 @@ include('../includes/load.trenes.php');
     <div id="NavBar">
         <ul>
             <li><i class="fas fa-home"></i></li>
-            <li>Panel de control</li>
-            <li>Horarios</li>
-            <li class="RightSideTxt"><i class="fas fa-sign-out-alt"></i></li>
+            <a href="Panel.php"><li>Panel de control</li></a>
+            <a href="Horarios2.php"><li>Horarios</li></a>
+            <a href="../includes/logout.user.inc.php"><li class="RightSideTxt"><i class="fas fa-sign-out-alt"></i></li></a>
             <li id="WelcomeText" class="RightSideTxt">Bienvenido <?php include('../includes/load.username.php');
                                                                     echo $nombreUsuario ?></li>
         </ul>

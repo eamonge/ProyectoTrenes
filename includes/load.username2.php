@@ -2,6 +2,8 @@
 
 include('db.connect.inc.php');
 
+$Search = $_SESSION['SearchEmailInput'];
+
 if ($db->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -17,7 +19,7 @@ $sql = "SELECT idUsuario
               ,Contrasena
               ,FdN
         FROM usuarios
-        WHERE Correo = '$Correo';";
+        WHERE Correo = '$Search';";
 $result = $db->query($sql);
 
 while ($row = $result->fetch_assoc()) {

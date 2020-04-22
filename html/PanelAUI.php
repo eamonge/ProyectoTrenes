@@ -32,31 +32,34 @@
                 <div id="menu1" class="tab-pane fade">
                     <div class="jumbotron ajustes">
                         <h1 class="display-4">Usuarios</h1>
-                        <form class="border p-3 form">
+                        <form class="border p-3 form" action="../includes/search.username.inc.php">
                             <div class="form-group">
                                 <h1 class="lead">Buscar usuario</h1>
-                                <input class="form-control mr-sm-2 searchbar" type="search" placeholder="Ingrese el correo" aria-label="Search" style="color: #56BDA2">
+                                <input class="form-control mr-sm-2 searchbar" name="SearchEmail" type="search" placeholder="Ingrese el correo" aria-label="Search" style="color: #56BDA2">
                                 <button class="btn btn-outline-success my-2 my-sm-0 searchbarbtn" type="submit"><i class="fas fa-search"></i></button>
                                 <hr>
-                                <h1 class="lead">Usuario:</h1>
-                                <input type="text">
-                                <h1 class="lead">Primer Apellido:</h1>
-                                <input type="text">
-                                <h1 class="lead">Segundo Apellido:</h1>
-                                <input type="text">
-                                <h1 class="lead">Cédula:</h1>
-                                <input type="text">
-                                <h1 class="lead">Correo:</h1>
-                                <input type="text">
-                                <h1 class="lead">Contraseña:</h1>
-                                <input type="password">
-                                <h1 class="lead">Confirmar contraseña:</h1>
-                                <input type="password">
-                                <h1 class="lead">Fecha de nacimiento:</h1>
-                                <input type="date">
-
                             </div>
                         </form>
+                        <div class="form-group">
+                            <?php include('../includes/load.username2.php'); ?>
+                            <hr>
+                            <h1 class="lead">Usuario:</h1>
+                            <input type="text" value="<?php echo $nombreUsuario ?>">
+                            <h1 class="lead">Primer Apellido:</h1>
+                            <input type="text">
+                            <h1 class="lead">Segundo Apellido:</h1>
+                            <input type="text">
+                            <h1 class="lead">Cédula:</h1>
+                            <input type="text">
+                            <h1 class="lead">Correo:</h1>
+                            <input type="text">
+                            <h1 class="lead">Contraseña:</h1>
+                            <input type="password">
+                            <h1 class="lead">Confirmar contraseña:</h1>
+                            <input type="password">
+                            <h1 class="lead">Fecha de nacimiento:</h1>
+                            <input type="date">
+                        </div>
                     </div>
                 </div>
                 <div id="menu2" class="tab-pane fade">
